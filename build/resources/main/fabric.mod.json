@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "blowup",
+	"version": "1.0.0",
+	"name": "blowup",
+	"description": "Make boom boom!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"name.blowup.Blowup"
+		],
+		"client": [
+			"name.blowup.BlowupClient"
+		]
+	},
+	"mixins": [
+		"blowup.mixins.json",
+		{
+			"config": "blowup.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.11",
+		"minecraft": "~1.21.4",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

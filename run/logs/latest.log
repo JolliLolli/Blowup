@@ -1,0 +1,793 @@
+[19:10:50] [main/INFO] (FabricLoader/GameProvider) Loading Minecraft 1.21.4 with Fabric Loader 0.16.11
+[19:10:50] [main/INFO] (FabricLoader) Loading 60 mods:
+	- blowup 1.0.0
+	- fabric-api 0.119.2+1.21.4
+	- fabric-api-base 0.4.54+b47eab6b04
+	- fabric-api-lookup-api-v1 1.6.86+b1caf1e904
+	- fabric-biome-api-v1 15.0.6+b1c29d8e04
+	- fabric-block-api-v1 1.0.31+7feeb73304
+	- fabric-block-view-api-v2 1.0.20+9c49cc8c04
+	- fabric-blockrenderlayer-v1 2.0.8+7feeb73304
+	- fabric-client-gametest-api-v1 4.1.1+6816ccd404
+	- fabric-client-tags-api-v1 1.1.29+20ea1e2304
+	- fabric-command-api-v1 1.2.62+f71b366f04
+	- fabric-command-api-v2 2.2.41+e496eb1504
+	- fabric-commands-v0 0.2.79+df3654b304
+	- fabric-content-registries-v0 9.1.19+25d1a67604
+	- fabric-convention-tags-v1 2.1.20+7f945d5b04
+	- fabric-convention-tags-v2 2.14.1+1edcd29104
+	- fabric-crash-report-info-v1 0.3.6+7feeb73304
+	- fabric-data-attachment-api-v1 1.6.2+e99da0f704
+	- fabric-data-generation-api-v1 22.3.1+0f4e5f5504
+	- fabric-dimensions-v1 4.0.10+7feeb73304
+	- fabric-entity-events-v1 2.0.15+62245bef04
+	- fabric-events-interaction-v0 4.0.4+a4eebcf004
+	- fabric-game-rule-api-v1 1.0.63+7d48d43904
+	- fabric-gametest-api-v1 2.0.26+7feeb73304
+	- fabric-item-api-v1 11.3.0+ee91fa1f04
+	- fabric-item-group-api-v1 4.2.2+fcb9601404
+	- fabric-key-binding-api-v1 1.0.57+7d48d43904
+	- fabric-keybindings-v0 0.2.55+df3654b304
+	- fabric-lifecycle-events-v1 2.5.4+bf2a60eb04
+	- fabric-loot-api-v2 3.0.38+3f89f5a504
+	- fabric-loot-api-v3 1.0.26+203e6b2304
+	- fabric-message-api-v1 6.0.25+7feeb73304
+	- fabric-model-loading-api-v1 4.3.0+ae23723504
+	- fabric-networking-api-v1 4.4.0+db5e668204
+	- fabric-object-builder-api-v1 18.0.14+38b0d59804
+	- fabric-particles-v1 4.0.14+7feeb73304
+	- fabric-recipe-api-v1 8.1.1+640e77ae04
+	- fabric-registry-sync-v0 6.1.11+4a9c1ece04
+	- fabric-renderer-api-v1 5.0.3+50f0feb204
+	- fabric-renderer-indigo 2.0.3+50f0feb204
+	- fabric-rendering-data-attachment-v1 0.3.58+73761d2e04
+	- fabric-rendering-fluids-v1 3.1.19+7feeb73304
+	- fabric-rendering-v1 10.2.1+0d31b09f04
+	- fabric-resource-conditions-api-v1 5.0.13+203e6b2304
+	- fabric-resource-loader-v0 3.1.1+360374ac04
+	- fabric-screen-api-v1 2.0.38+7feeb73304
+	- fabric-screen-handler-api-v1 1.3.118+7feeb73304
+	- fabric-sound-api-v1 1.0.32+7feeb73304
+	- fabric-tag-api-v1 1.0.7+7d48d43904
+	- fabric-transfer-api-v1 5.4.9+efa825c904
+	- fabric-transitive-access-wideners-v1 6.3.2+56e78b9b04
+	- fabricloader 0.16.11
+	- iris 1.8.8+mc1.21.4
+	   |-- io_github_douira_glsl-transformer 2.0.1
+	   |-- org_anarres_jcpp 1.4.14
+	   \-- org_antlr_antlr4-runtime 4.13.1
+	- java 21
+	- minecraft 1.21.4
+	- mixinextras 0.4.1
+	- sodium 0.6.10+mc1.21.4
+[19:10:54] [main/INFO] (FabricLoader/Mixin) SpongePowered MIXIN Subsystem Version=0.8.7 Source=file:/C:/Users/keira/.gradle/caches/modules-2/files-2.1/net.fabricmc/sponge-mixin/0.15.4+mixin.0.8.7/6a12aacc794f1078458433116e9ed42c1cc98096/sponge-mixin-0.15.4+mixin.0.8.7.jar Service=Knot/Fabric Env=CLIENT
+[19:10:54] [main/INFO] (FabricLoader/Mixin) Loaded Fabric development mappings for mixin remapper!
+[19:10:54] [main/INFO] (FabricLoader/Mixin) Compatibility level set to JAVA_21
+[19:10:54] [main/INFO] (Sodium) Loaded configuration file for Sodium: 43 options available, 1 override(s) found
+[19:10:54] [main/WARN] (FabricLoader/Mixin) Reference map 'iris.refmap.json' for mixins.iris.json could not be read. If this is a development environment you can ignore this message
+[19:10:54] [main/WARN] (FabricLoader/Mixin) Reference map 'iris-fabric.refmap.json' for mixins.iris.fabric.json could not be read. If this is a development environment you can ignore this message
+[19:10:54] [main/WARN] (FabricLoader/Mixin) Reference map 'iris.refmap.json' for iris-batched-entity-rendering.mixins.json could not be read. If this is a development environment you can ignore this message
+[19:10:54] [main/WARN] (FabricLoader/Mixin) Reference map 'iris.refmap.json' for mixins.iris.fantastic.json could not be read. If this is a development environment you can ignore this message
+[19:10:54] [main/WARN] (FabricLoader/Mixin) Reference map 'iris.refmap.json' for mixins.iris.vertexformat.json could not be read. If this is a development environment you can ignore this message
+[19:10:54] [main/WARN] (FabricLoader/Mixin) Reference map 'iris.refmap.json' for mixins.iris.bettermipmaps.json could not be read. If this is a development environment you can ignore this message
+[19:10:54] [main/WARN] (FabricLoader/Mixin) Reference map 'iris.refmap.json' for mixins.iris.compat.sodium.json could not be read. If this is a development environment you can ignore this message
+[19:10:54] [main/WARN] (FabricLoader/Mixin) Reference map 'iris.refmap.json' for mixins.iris.fixes.maxfpscrash.json could not be read. If this is a development environment you can ignore this message
+[19:10:55] [main/WARN] (Sodium) Force-disabling mixin 'features.render.world.sky.FogRendererMixin' as rule 'mixin.features.render.world.sky' (added by mods [iris]) disables it and children
+[19:10:55] [main/WARN] (Sodium) Force-disabling mixin 'features.render.world.sky.ClientLevelMixin' as rule 'mixin.features.render.world.sky' (added by mods [iris]) disables it and children
+[19:10:55] [main/WARN] (Sodium) Force-disabling mixin 'features.render.world.sky.LevelRendererMixin' as rule 'mixin.features.render.world.sky' (added by mods [iris]) disables it and children
+[19:10:55] [main/INFO] (Sodium-GraphicsAdapterProbe) Searching for graphics cards...
+[19:10:55] [main/INFO] (Sodium-GraphicsAdapterProbe) Found graphics adapter: AdapterInfo{vendor=NVIDIA, description='NVIDIA GeForce RTX 4060 Ti', adapterType=0x0000031B, openglIcdFilePath='C:\WINDOWS\System32\DriverStore\FileRepository\nv_dispi.inf_amd64_0fb2df354c49e826\nvoglv64.dll', openglIcdVersion=32.0.15.7270}
+[19:10:55] [main/WARN] (Sodium-Workarounds) Sodium has applied one or more workarounds to prevent crashes or other issues on your system: [NVIDIA_THREADED_OPTIMIZATIONS_BROKEN]
+[19:10:55] [main/WARN] (Sodium-Workarounds) This is not necessarily an issue, but it may result in certain features or optimizations being disabled. You can sometimes fix these issues by upgrading your graphics driver.
+[19:10:56] [main/INFO] (FabricLoader/MixinExtras|Service) Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
+[19:10:57] [Datafixer Bootstrap/INFO] (Minecraft) 243 Datafixer optimizations took 352 milliseconds
+[19:11:03] [Render thread/INFO] (Minecraft) Environment: Environment[sessionHost=https://sessionserver.mojang.com, servicesHost=https://api.minecraftservices.com, name=PROD]
+[19:11:03] [Render thread/INFO] (Minecraft) Setting user: Player865
+[19:11:03] [Render thread/INFO] (Minecraft) [STDOUT]: ModEntities registered
+[19:11:03] [Render thread/INFO] (blowup) Hello Fabric world!
+[19:11:03] [Render thread/INFO] (Indigo) [Indigo] Different rendering plugin detected; not applying Indigo.
+[19:11:03] [Render thread/INFO] (Minecraft) Backend library: LWJGL version 3.3.3-snapshot
+[19:11:03] [Render thread/INFO] (Sodium-NvidiaWorkarounds) Modifying process environment to apply workarounds for the NVIDIA graphics driver...
+[19:11:04] [Render thread/INFO] (Minecraft) OpenGL Vendor: NVIDIA Corporation
+[19:11:04] [Render thread/INFO] (Minecraft) OpenGL Renderer: NVIDIA GeForce RTX 4060 Ti/PCIe/SSE2
+[19:11:04] [Render thread/INFO] (Minecraft) OpenGL Version: 3.2.0 NVIDIA 572.70
+[19:11:04] [Render thread/INFO] (Sodium-NvidiaWorkarounds) Modifying OpenGL context to apply workarounds for the NVIDIA graphics driver...
+[19:11:04] [Render thread/INFO] (Sodium-NvidiaWorkarounds) Enabling GL_DEBUG_OUTPUT_SYNCHRONOUS to force the NVIDIA driver to disable threadedcommand submission
+[19:11:04] [Render thread/INFO] (Iris) Debug functionality is disabled.
+[19:11:04] [Render thread/INFO] (Iris) ARB_direct_state_access detected, enabling DSA.
+[19:11:04] [Render thread/INFO] (Iris) Profile: HIGH (+0 options changed by user)
+[19:11:04] [ForkJoinPool.commonPool-worker-1/WARN] (Iris) [Iris Update Check] This version doesn't have an update index, skipping.
+[19:11:05] [Render thread/INFO] (Iris) Using shaderpack: ComplementaryReimagined_r5.4.zip
+[19:11:05] [Render thread/INFO] (Iris) Hardware information:
+[19:11:05] [Render thread/INFO] (Iris) CPU: 16x 11th Gen Intel(R) Core(TM) i9-11900KF @ 3.50GHz
+[19:11:05] [Render thread/INFO] (Iris) GPU: NVIDIA GeForce RTX 4060 Ti/PCIe/SSE2 (Supports OpenGL 3.2.0 NVIDIA 572.70)
+[19:11:05] [Render thread/INFO] (Iris) OS: Windows 11 (10.0)
+[19:11:06] [Render thread/INFO] (Minecraft) Reloading ResourceManager: vanilla, fabric, blowup, fabric-api, fabric-api-base, fabric-api-lookup-api-v1, fabric-biome-api-v1, fabric-block-api-v1, fabric-block-view-api-v2, fabric-blockrenderlayer-v1, fabric-client-gametest-api-v1, fabric-client-tags-api-v1, fabric-command-api-v1, fabric-command-api-v2, fabric-commands-v0, fabric-content-registries-v0, fabric-convention-tags-v1, fabric-convention-tags-v2, fabric-crash-report-info-v1, fabric-data-attachment-api-v1, fabric-data-generation-api-v1, fabric-dimensions-v1, fabric-entity-events-v1, fabric-events-interaction-v0, fabric-game-rule-api-v1, fabric-gametest-api-v1, fabric-item-api-v1, fabric-item-group-api-v1, fabric-key-binding-api-v1, fabric-keybindings-v0, fabric-lifecycle-events-v1, fabric-loot-api-v2, fabric-loot-api-v3, fabric-message-api-v1, fabric-model-loading-api-v1, fabric-networking-api-v1, fabric-object-builder-api-v1, fabric-particles-v1, fabric-recipe-api-v1, fabric-registry-sync-v0, fabric-renderer-api-v1, fabric-renderer-indigo, fabric-rendering-data-attachment-v1, fabric-rendering-fluids-v1, fabric-rendering-v1, fabric-resource-conditions-api-v1, fabric-resource-loader-v0, fabric-screen-api-v1, fabric-screen-handler-api-v1, fabric-sound-api-v1, fabric-tag-api-v1, fabric-transfer-api-v1, fabric-transitive-access-wideners-v1, fabricloader, iris, sodium
+[19:11:06] [Worker-Main-13/INFO] (Minecraft) Found unifont_all_no_pua-16.0.01.hex, loading
+[19:11:06] [Worker-Main-1/INFO] (Minecraft) Found unifont_jp_patch-16.0.01.hex, loading
+[19:11:07] [Worker-Main-2/WARN] (Minecraft) Missing texture references in model blowup:big_sword#inventory:
+    #missing
+[19:11:07] [Render thread/INFO] (Minecraft) OpenAL initialized on device OpenAL Soft on Speakers (I'm Fulla Schiit)
+[19:11:07] [Render thread/INFO] (Minecraft) Sound engine started
+[19:11:07] [Render thread/INFO] (Minecraft) Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[19:11:07] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[19:11:07] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[19:11:07] [Render thread/INFO] (Minecraft) Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[19:11:07] [Render thread/INFO] (Minecraft) Created: 2048x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[19:11:08] [Render thread/INFO] (Minecraft) Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[19:11:08] [Render thread/INFO] (Minecraft) Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[19:11:08] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[19:11:08] [Render thread/INFO] (Minecraft) Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[19:11:08] [Render thread/INFO] (Minecraft) Created: 64x64x0 minecraft:textures/atlas/map_decorations.png-atlas
+[19:11:08] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/particles.png-atlas
+[19:11:08] [Render thread/INFO] (Minecraft) Created: 512x256x0 minecraft:textures/atlas/paintings.png-atlas
+[19:11:08] [Render thread/INFO] (Minecraft) Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[19:11:08] [Render thread/INFO] (Minecraft) Created: 1024x512x0 minecraft:textures/atlas/gui.png-atlas
+[19:11:08] [Render thread/INFO] (Iris) Creating pipeline for dimension minecraft:overworld
+[19:11:27] [Render thread/INFO] (Minecraft) Loaded 1370 recipes
+[19:11:27] [Render thread/INFO] (Minecraft) Loaded 1481 advancements
+[19:11:27] [Render thread/INFO] (BiomeModificationImpl) Applied 0 biome modifications to 0 of 65 new biomes in 1.171 ms
+[19:11:27] [Server thread/INFO] (Minecraft) Starting integrated minecraft server version 1.21.4
+[19:11:27] [Server thread/INFO] (Minecraft) Generating keypair
+[19:11:28] [Server thread/INFO] (Minecraft) Preparing start region for dimension minecraft:overworld
+[19:11:28] [Render thread/INFO] (Minecraft) Preparing spawn area: 0%
+[19:11:28] [Render thread/INFO] (Minecraft) Preparing spawn area: 0%
+[19:11:28] [Render thread/INFO] (Minecraft) Time elapsed: 763 ms
+[19:11:28] [Server thread/INFO] (Minecraft) Changing view distance to 12, from 10
+[19:11:28] [Server thread/INFO] (Minecraft) Changing simulation distance to 12, from 0
+[19:11:29] [Server thread/INFO] (Minecraft) Player865[local:E:494f13c7] logged in with entity id 20 at (-75.22084187039465, 113.48050066457, -32.96351898338372)
+[19:11:29] [Server thread/INFO] (Minecraft) Player865 joined the game
+[19:11:29] [Render thread/INFO] (Iris) Reloading pipeline on dimension change: minecraft:overworld => minecraft:overworld
+[19:11:29] [Render thread/INFO] (Iris) Destroying pipeline minecraft:overworld
+[19:11:29] [Render thread/INFO] (Iris) Creating pipeline for dimension minecraft:overworld
+[19:11:30] [Render thread/INFO] (ChunkBuilder) Started 10 worker threads
+[19:11:30] [Render thread/INFO] (Minecraft) Loaded 22 advancements
+[19:11:30] [Render thread/WARN] (Iris) Error while parsing the block ID map entry for "block.10104":
+[19:11:30] [Render thread/WARN] (Iris) - The block minecraft:stone_slab has no property with the name variant, ignoring!
+[19:11:30] [Render thread/INFO] (ChunkBuilder) Stopping worker threads
+[19:11:30] [Render thread/INFO] (ChunkBuilder) Started 10 worker threads
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/432, l='ServerLevel[New World]', x=-84.50, y=101.00, z=-59.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/433, l='ServerLevel[New World]', x=-83.50, y=98.00, z=-58.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/434, l='ServerLevel[New World]', x=-75.50, y=99.00, z=-58.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/435, l='ServerLevel[New World]', x=-75.50, y=100.00, z=-58.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/436, l='ServerLevel[New World]', x=-85.50, y=101.00, z=-58.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/437, l='ServerLevel[New World]', x=-83.50, y=101.00, z=-58.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/438, l='ServerLevel[New World]', x=-81.50, y=101.00, z=-58.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/439, l='ServerLevel[New World]', x=-87.50, y=102.00, z=-58.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/440, l='ServerLevel[New World]', x=-82.50, y=102.00, z=-58.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/441, l='ServerLevel[New World]', x=-79.50, y=97.00, z=-57.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/442, l='ServerLevel[New World]', x=-83.50, y=98.00, z=-57.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/443, l='ServerLevel[New World]', x=-76.50, y=98.00, z=-57.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/444, l='ServerLevel[New World]', x=-83.50, y=100.00, z=-57.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/445, l='ServerLevel[New World]', x=-86.50, y=101.00, z=-57.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/446, l='ServerLevel[New World]', x=-81.50, y=101.00, z=-57.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/447, l='ServerLevel[New World]', x=-83.50, y=95.00, z=-56.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/448, l='ServerLevel[New World]', x=-81.50, y=95.00, z=-56.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/449, l='ServerLevel[New World]', x=-77.50, y=95.00, z=-56.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/450, l='ServerLevel[New World]', x=-87.50, y=97.00, z=-56.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/451, l='ServerLevel[New World]', x=-83.50, y=97.00, z=-56.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/452, l='ServerLevel[New World]', x=-78.50, y=97.00, z=-56.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/453, l='ServerLevel[New World]', x=-82.50, y=99.00, z=-56.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/454, l='ServerLevel[New World]', x=-76.50, y=99.00, z=-56.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/455, l='ServerLevel[New World]', x=-89.50, y=101.00, z=-56.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/456, l='ServerLevel[New World]', x=-88.50, y=101.00, z=-56.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/457, l='ServerLevel[New World]', x=-82.50, y=101.00, z=-56.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/458, l='ServerLevel[New World]', x=-80.50, y=101.00, z=-56.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/459, l='ServerLevel[New World]', x=-78.50, y=101.00, z=-56.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/460, l='ServerLevel[New World]', x=-79.50, y=93.00, z=-55.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/461, l='ServerLevel[New World]', x=-81.50, y=94.00, z=-55.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/462, l='ServerLevel[New World]', x=-83.50, y=95.00, z=-55.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/463, l='ServerLevel[New World]', x=-83.50, y=96.00, z=-55.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/464, l='ServerLevel[New World]', x=-80.50, y=97.00, z=-55.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/465, l='ServerLevel[New World]', x=-80.50, y=98.00, z=-55.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/466, l='ServerLevel[New World]', x=-80.50, y=99.00, z=-55.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/467, l='ServerLevel[New World]', x=-82.50, y=101.00, z=-55.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/468, l='ServerLevel[New World]', x=-77.50, y=101.00, z=-55.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/469, l='ServerLevel[New World]', x=-83.50, y=102.00, z=-55.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/470, l='ServerLevel[New World]', x=-81.50, y=93.00, z=-54.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/471, l='ServerLevel[New World]', x=-81.50, y=94.00, z=-54.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/472, l='ServerLevel[New World]', x=-88.50, y=96.00, z=-54.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Coal Ore'/473, l='ServerLevel[New World]', x=-78.50, y=97.00, z=-54.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/474, l='ServerLevel[New World]', x=-76.50, y=97.00, z=-54.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/475, l='ServerLevel[New World]', x=-73.50, y=97.00, z=-54.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/476, l='ServerLevel[New World]', x=-86.50, y=99.00, z=-54.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/477, l='ServerLevel[New World]', x=-88.50, y=100.00, z=-54.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/478, l='ServerLevel[New World]', x=-77.50, y=100.00, z=-54.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/479, l='ServerLevel[New World]', x=-75.50, y=100.00, z=-54.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/480, l='ServerLevel[New World]', x=-76.50, y=101.00, z=-54.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/481, l='ServerLevel[New World]', x=-83.50, y=92.00, z=-53.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/482, l='ServerLevel[New World]', x=-81.50, y=92.00, z=-53.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/483, l='ServerLevel[New World]', x=-79.50, y=92.00, z=-53.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/484, l='ServerLevel[New World]', x=-84.50, y=93.00, z=-53.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/485, l='ServerLevel[New World]', x=-81.50, y=93.00, z=-53.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/486, l='ServerLevel[New World]', x=-78.50, y=93.00, z=-53.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/487, l='ServerLevel[New World]', x=-79.50, y=95.00, z=-53.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/488, l='ServerLevel[New World]', x=-80.50, y=96.00, z=-53.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/489, l='ServerLevel[New World]', x=-75.50, y=96.00, z=-53.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/490, l='ServerLevel[New World]', x=-71.50, y=96.00, z=-53.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/491, l='ServerLevel[New World]', x=-71.50, y=97.00, z=-53.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/492, l='ServerLevel[New World]', x=-84.50, y=98.00, z=-53.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Coal Ore'/493, l='ServerLevel[New World]', x=-79.50, y=98.00, z=-53.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/494, l='ServerLevel[New World]', x=-87.50, y=99.00, z=-53.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/495, l='ServerLevel[New World]', x=-77.50, y=99.00, z=-53.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/496, l='ServerLevel[New World]', x=-77.50, y=100.00, z=-53.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/497, l='ServerLevel[New World]', x=-75.50, y=100.00, z=-53.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/498, l='ServerLevel[New World]', x=-88.50, y=101.00, z=-53.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/499, l='ServerLevel[New World]', x=-85.50, y=102.00, z=-53.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/500, l='ServerLevel[New World]', x=-82.50, y=91.00, z=-52.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/501, l='ServerLevel[New World]', x=-80.50, y=91.00, z=-52.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/502, l='ServerLevel[New World]', x=-83.50, y=92.00, z=-52.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/503, l='ServerLevel[New World]', x=-86.50, y=93.00, z=-52.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/504, l='ServerLevel[New World]', x=-74.50, y=93.00, z=-52.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/505, l='ServerLevel[New World]', x=-82.50, y=95.00, z=-52.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/506, l='ServerLevel[New World]', x=-81.50, y=95.00, z=-52.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/507, l='ServerLevel[New World]', x=-75.50, y=95.00, z=-52.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/508, l='ServerLevel[New World]', x=-90.50, y=96.00, z=-52.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/509, l='ServerLevel[New World]', x=-79.50, y=96.00, z=-52.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/510, l='ServerLevel[New World]', x=-73.50, y=96.00, z=-52.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/511, l='ServerLevel[New World]', x=-86.50, y=97.00, z=-52.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/512, l='ServerLevel[New World]', x=-73.50, y=98.00, z=-52.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/513, l='ServerLevel[New World]', x=-70.50, y=98.00, z=-52.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/514, l='ServerLevel[New World]', x=-83.50, y=100.00, z=-52.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/515, l='ServerLevel[New World]', x=-89.50, y=101.00, z=-52.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/516, l='ServerLevel[New World]', x=-81.50, y=101.00, z=-52.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/517, l='ServerLevel[New World]', x=-78.50, y=101.00, z=-52.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/518, l='ServerLevel[New World]', x=-87.50, y=103.00, z=-52.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/519, l='ServerLevel[New World]', x=-81.50, y=103.00, z=-52.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/520, l='ServerLevel[New World]', x=-81.50, y=92.00, z=-51.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/521, l='ServerLevel[New World]', x=-75.50, y=92.00, z=-51.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/522, l='ServerLevel[New World]', x=-79.50, y=95.00, z=-51.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/523, l='ServerLevel[New World]', x=-78.50, y=95.00, z=-51.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/524, l='ServerLevel[New World]', x=-77.50, y=95.00, z=-51.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/525, l='ServerLevel[New World]', x=-84.50, y=96.00, z=-51.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/526, l='ServerLevel[New World]', x=-91.50, y=97.00, z=-51.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/527, l='ServerLevel[New World]', x=-76.50, y=97.00, z=-51.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/528, l='ServerLevel[New World]', x=-92.50, y=98.00, z=-51.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Coal Ore'/529, l='ServerLevel[New World]', x=-82.50, y=99.00, z=-51.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/530, l='ServerLevel[New World]', x=-88.50, y=101.00, z=-51.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/531, l='ServerLevel[New World]', x=-76.50, y=101.00, z=-51.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/532, l='ServerLevel[New World]', x=-75.50, y=101.00, z=-51.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/533, l='ServerLevel[New World]', x=-86.50, y=102.00, z=-51.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/534, l='ServerLevel[New World]', x=-84.50, y=102.00, z=-51.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/535, l='ServerLevel[New World]', x=-79.50, y=90.00, z=-50.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/536, l='ServerLevel[New World]', x=-74.50, y=94.00, z=-50.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/537, l='ServerLevel[New World]', x=-89.50, y=95.00, z=-50.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/538, l='ServerLevel[New World]', x=-82.50, y=95.00, z=-50.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/539, l='ServerLevel[New World]', x=-76.50, y=95.00, z=-50.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/540, l='ServerLevel[New World]', x=-90.50, y=96.00, z=-50.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/541, l='ServerLevel[New World]', x=-81.50, y=96.00, z=-50.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/542, l='ServerLevel[New World]', x=-78.50, y=96.00, z=-50.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/543, l='ServerLevel[New World]', x=-90.50, y=97.00, z=-50.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/544, l='ServerLevel[New World]', x=-78.50, y=98.00, z=-50.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/545, l='ServerLevel[New World]', x=-76.50, y=98.00, z=-50.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/546, l='ServerLevel[New World]', x=-91.50, y=100.00, z=-50.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/547, l='ServerLevel[New World]', x=-79.50, y=100.00, z=-50.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/548, l='ServerLevel[New World]', x=-74.50, y=100.00, z=-50.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/549, l='ServerLevel[New World]', x=-67.50, y=101.00, z=-50.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/550, l='ServerLevel[New World]', x=-82.50, y=102.00, z=-50.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/551, l='ServerLevel[New World]', x=-78.50, y=102.00, z=-50.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/552, l='ServerLevel[New World]', x=-81.50, y=90.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/553, l='ServerLevel[New World]', x=-88.50, y=92.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/554, l='ServerLevel[New World]', x=-81.50, y=92.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/555, l='ServerLevel[New World]', x=-75.50, y=92.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/556, l='ServerLevel[New World]', x=-78.50, y=93.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/557, l='ServerLevel[New World]', x=-77.50, y=93.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/558, l='ServerLevel[New World]', x=-75.50, y=93.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/559, l='ServerLevel[New World]', x=-81.50, y=94.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/560, l='ServerLevel[New World]', x=-73.50, y=94.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/561, l='ServerLevel[New World]', x=-88.50, y=95.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/562, l='ServerLevel[New World]', x=-85.50, y=95.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/563, l='ServerLevel[New World]', x=-90.50, y=96.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/564, l='ServerLevel[New World]', x=-72.50, y=96.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/565, l='ServerLevel[New World]', x=-84.50, y=97.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/566, l='ServerLevel[New World]', x=-77.50, y=97.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/567, l='ServerLevel[New World]', x=-75.50, y=97.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/568, l='ServerLevel[New World]', x=-93.50, y=98.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/569, l='ServerLevel[New World]', x=-91.50, y=98.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Coal Ore'/570, l='ServerLevel[New World]', x=-82.50, y=98.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/571, l='ServerLevel[New World]', x=-76.50, y=98.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/572, l='ServerLevel[New World]', x=-71.50, y=98.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/573, l='ServerLevel[New World]', x=-84.50, y=99.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/574, l='ServerLevel[New World]', x=-74.50, y=99.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/575, l='ServerLevel[New World]', x=-77.50, y=100.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/576, l='ServerLevel[New World]', x=-80.50, y=101.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/577, l='ServerLevel[New World]', x=-88.50, y=102.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/578, l='ServerLevel[New World]', x=-92.50, y=103.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/579, l='ServerLevel[New World]', x=-90.50, y=103.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/580, l='ServerLevel[New World]', x=-82.50, y=103.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/581, l='ServerLevel[New World]', x=-91.50, y=104.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/582, l='ServerLevel[New World]', x=-86.50, y=105.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/583, l='ServerLevel[New World]', x=-85.50, y=105.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/584, l='ServerLevel[New World]', x=-88.50, y=106.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/585, l='ServerLevel[New World]', x=-90.50, y=107.00, z=-49.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/586, l='ServerLevel[New World]', x=-76.50, y=90.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/587, l='ServerLevel[New World]', x=-86.50, y=91.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/588, l='ServerLevel[New World]', x=-75.50, y=91.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/589, l='ServerLevel[New World]', x=-74.50, y=91.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/590, l='ServerLevel[New World]', x=-86.50, y=92.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/591, l='ServerLevel[New World]', x=-83.50, y=92.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/592, l='ServerLevel[New World]', x=-82.50, y=92.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/593, l='ServerLevel[New World]', x=-79.50, y=92.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/594, l='ServerLevel[New World]', x=-83.50, y=93.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/595, l='ServerLevel[New World]', x=-80.50, y=93.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/596, l='ServerLevel[New World]', x=-79.50, y=93.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/597, l='ServerLevel[New World]', x=-90.50, y=94.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/598, l='ServerLevel[New World]', x=-70.50, y=94.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/599, l='ServerLevel[New World]', x=-81.50, y=95.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/600, l='ServerLevel[New World]', x=-78.50, y=95.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/601, l='ServerLevel[New World]', x=-81.50, y=96.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/602, l='ServerLevel[New World]', x=-88.50, y=97.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/603, l='ServerLevel[New World]', x=-73.50, y=97.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/604, l='ServerLevel[New World]', x=-91.50, y=98.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/605, l='ServerLevel[New World]', x=-69.50, y=98.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/606, l='ServerLevel[New World]', x=-89.50, y=99.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/607, l='ServerLevel[New World]', x=-88.50, y=99.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Coal Ore'/608, l='ServerLevel[New World]', x=-81.50, y=99.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/609, l='ServerLevel[New World]', x=-72.50, y=99.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/610, l='ServerLevel[New World]', x=-71.50, y=99.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/611, l='ServerLevel[New World]', x=-77.50, y=100.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/612, l='ServerLevel[New World]', x=-69.50, y=100.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/613, l='ServerLevel[New World]', x=-66.50, y=100.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/614, l='ServerLevel[New World]', x=-87.50, y=101.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/615, l='ServerLevel[New World]', x=-78.50, y=101.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/616, l='ServerLevel[New World]', x=-76.50, y=101.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/617, l='ServerLevel[New World]', x=-70.50, y=101.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/618, l='ServerLevel[New World]', x=-82.50, y=102.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/619, l='ServerLevel[New World]', x=-74.50, y=102.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/620, l='ServerLevel[New World]', x=-89.50, y=103.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/621, l='ServerLevel[New World]', x=-83.50, y=103.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/622, l='ServerLevel[New World]', x=-88.50, y=104.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/623, l='ServerLevel[New World]', x=-86.50, y=104.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/624, l='ServerLevel[New World]', x=-93.50, y=105.00, z=-48.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/625, l='ServerLevel[New World]', x=-84.50, y=90.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/626, l='ServerLevel[New World]', x=-82.50, y=90.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/627, l='ServerLevel[New World]', x=-86.50, y=91.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/628, l='ServerLevel[New World]', x=-82.50, y=91.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/629, l='ServerLevel[New World]', x=-81.50, y=91.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/630, l='ServerLevel[New World]', x=-80.50, y=91.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/631, l='ServerLevel[New World]', x=-87.50, y=92.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/632, l='ServerLevel[New World]', x=-86.50, y=92.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/633, l='ServerLevel[New World]', x=-72.50, y=92.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/634, l='ServerLevel[New World]', x=-78.50, y=93.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/635, l='ServerLevel[New World]', x=-89.50, y=94.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/636, l='ServerLevel[New World]', x=-77.50, y=94.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/637, l='ServerLevel[New World]', x=-88.50, y=95.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/638, l='ServerLevel[New World]', x=-70.50, y=95.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/639, l='ServerLevel[New World]', x=-90.50, y=96.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/640, l='ServerLevel[New World]', x=-84.50, y=96.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/641, l='ServerLevel[New World]', x=-79.50, y=96.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/642, l='ServerLevel[New World]', x=-73.50, y=96.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/643, l='ServerLevel[New World]', x=-71.50, y=96.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/644, l='ServerLevel[New World]', x=-90.50, y=97.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/645, l='ServerLevel[New World]', x=-89.50, y=97.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/646, l='ServerLevel[New World]', x=-77.50, y=97.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/647, l='ServerLevel[New World]', x=-85.50, y=98.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/648, l='ServerLevel[New World]', x=-76.50, y=98.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/649, l='ServerLevel[New World]', x=-72.50, y=98.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/650, l='ServerLevel[New World]', x=-90.50, y=99.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/651, l='ServerLevel[New World]', x=-85.50, y=99.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/652, l='ServerLevel[New World]', x=-70.50, y=99.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/653, l='ServerLevel[New World]', x=-94.50, y=100.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/654, l='ServerLevel[New World]', x=-93.50, y=100.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/655, l='ServerLevel[New World]', x=-90.50, y=100.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/656, l='ServerLevel[New World]', x=-73.50, y=100.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/657, l='ServerLevel[New World]', x=-94.50, y=101.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/658, l='ServerLevel[New World]', x=-86.50, y=102.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/659, l='ServerLevel[New World]', x=-85.50, y=103.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/660, l='ServerLevel[New World]', x=-94.50, y=105.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/661, l='ServerLevel[New World]', x=-92.50, y=105.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/662, l='ServerLevel[New World]', x=-86.50, y=105.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/663, l='ServerLevel[New World]', x=-88.50, y=106.00, z=-47.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/664, l='ServerLevel[New World]', x=-84.50, y=90.00, z=-46.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/665, l='ServerLevel[New World]', x=-77.50, y=91.00, z=-46.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/666, l='ServerLevel[New World]', x=-89.50, y=93.00, z=-46.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Coal Ore'/667, l='ServerLevel[New World]', x=-74.50, y=93.00, z=-46.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Coal Ore'/668, l='ServerLevel[New World]', x=-73.50, y=93.00, z=-46.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/669, l='ServerLevel[New World]', x=-83.50, y=94.00, z=-46.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/670, l='ServerLevel[New World]', x=-90.50, y=95.00, z=-46.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/671, l='ServerLevel[New World]', x=-87.50, y=95.00, z=-46.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/672, l='ServerLevel[New World]', x=-80.50, y=95.00, z=-46.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/673, l='ServerLevel[New World]', x=-70.50, y=95.00, z=-46.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/674, l='ServerLevel[New World]', x=-78.50, y=96.00, z=-46.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/675, l='ServerLevel[New World]', x=-74.50, y=96.00, z=-46.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/676, l='ServerLevel[New World]', x=-89.50, y=98.00, z=-46.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/677, l='ServerLevel[New World]', x=-88.50, y=98.00, z=-46.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/678, l='ServerLevel[New World]', x=-83.50, y=98.00, z=-46.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Coal Ore'/679, l='ServerLevel[New World]', x=-82.50, y=98.00, z=-46.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/680, l='ServerLevel[New World]', x=-68.50, y=98.00, z=-46.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/681, l='ServerLevel[New World]', x=-92.50, y=99.00, z=-46.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/682, l='ServerLevel[New World]', x=-80.50, y=99.00, z=-46.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/683, l='ServerLevel[New World]', x=-76.50, y=99.00, z=-46.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/684, l='ServerLevel[New World]', x=-67.50, y=99.00, z=-46.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/685, l='ServerLevel[New World]', x=-76.50, y=100.00, z=-46.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/686, l='ServerLevel[New World]', x=-90.50, y=101.00, z=-46.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/687, l='ServerLevel[New World]', x=-83.50, y=102.00, z=-46.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/688, l='ServerLevel[New World]', x=-85.50, y=103.00, z=-46.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/689, l='ServerLevel[New World]', x=-89.50, y=105.00, z=-46.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/690, l='ServerLevel[New World]', x=-93.50, y=106.00, z=-46.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/691, l='ServerLevel[New World]', x=-89.50, y=106.00, z=-46.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/692, l='ServerLevel[New World]', x=-92.50, y=107.00, z=-46.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/693, l='ServerLevel[New World]', x=-81.50, y=90.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/694, l='ServerLevel[New World]', x=-75.50, y=91.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/695, l='ServerLevel[New World]', x=-86.50, y=93.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/696, l='ServerLevel[New World]', x=-83.50, y=93.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/697, l='ServerLevel[New World]', x=-75.50, y=93.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/698, l='ServerLevel[New World]', x=-72.50, y=93.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/699, l='ServerLevel[New World]', x=-78.50, y=94.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/700, l='ServerLevel[New World]', x=-76.50, y=94.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/701, l='ServerLevel[New World]', x=-75.50, y=94.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Coal Ore'/702, l='ServerLevel[New World]', x=-74.50, y=94.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/703, l='ServerLevel[New World]', x=-70.50, y=94.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/704, l='ServerLevel[New World]', x=-91.50, y=95.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/705, l='ServerLevel[New World]', x=-83.50, y=95.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/706, l='ServerLevel[New World]', x=-80.50, y=95.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/707, l='ServerLevel[New World]', x=-71.50, y=95.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/708, l='ServerLevel[New World]', x=-83.50, y=96.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/709, l='ServerLevel[New World]', x=-81.50, y=97.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/710, l='ServerLevel[New World]', x=-80.50, y=97.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/711, l='ServerLevel[New World]', x=-83.50, y=98.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/712, l='ServerLevel[New World]', x=-74.50, y=98.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/713, l='ServerLevel[New World]', x=-87.50, y=99.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/714, l='ServerLevel[New World]', x=-85.50, y=99.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/715, l='ServerLevel[New World]', x=-75.50, y=99.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/716, l='ServerLevel[New World]', x=-88.50, y=100.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/717, l='ServerLevel[New World]', x=-71.50, y=100.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/718, l='ServerLevel[New World]', x=-93.50, y=101.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/719, l='ServerLevel[New World]', x=-90.50, y=101.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/720, l='ServerLevel[New World]', x=-84.50, y=101.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/721, l='ServerLevel[New World]', x=-77.50, y=101.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/722, l='ServerLevel[New World]', x=-94.50, y=103.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/723, l='ServerLevel[New World]', x=-87.50, y=103.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/724, l='ServerLevel[New World]', x=-84.50, y=103.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/725, l='ServerLevel[New World]', x=-84.50, y=104.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/726, l='ServerLevel[New World]', x=-86.50, y=105.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/727, l='ServerLevel[New World]', x=-89.50, y=107.00, z=-45.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/728, l='ServerLevel[New World]', x=-85.50, y=91.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/729, l='ServerLevel[New World]', x=-82.50, y=91.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/730, l='ServerLevel[New World]', x=-84.50, y=93.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/731, l='ServerLevel[New World]', x=-91.50, y=94.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/732, l='ServerLevel[New World]', x=-79.50, y=94.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/733, l='ServerLevel[New World]', x=-90.50, y=95.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/734, l='ServerLevel[New World]', x=-88.50, y=95.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/735, l='ServerLevel[New World]', x=-87.50, y=95.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/736, l='ServerLevel[New World]', x=-81.50, y=96.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/737, l='ServerLevel[New World]', x=-79.50, y=96.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/738, l='ServerLevel[New World]', x=-73.50, y=96.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/739, l='ServerLevel[New World]', x=-90.50, y=97.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/740, l='ServerLevel[New World]', x=-89.50, y=97.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/741, l='ServerLevel[New World]', x=-88.50, y=97.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/742, l='ServerLevel[New World]', x=-86.50, y=97.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/743, l='ServerLevel[New World]', x=-85.50, y=97.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/744, l='ServerLevel[New World]', x=-83.50, y=97.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Coal Ore'/745, l='ServerLevel[New World]', x=-77.50, y=97.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/746, l='ServerLevel[New World]', x=-93.50, y=98.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/747, l='ServerLevel[New World]', x=-92.50, y=98.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/748, l='ServerLevel[New World]', x=-75.50, y=98.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/749, l='ServerLevel[New World]', x=-87.50, y=99.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/750, l='ServerLevel[New World]', x=-83.50, y=99.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/751, l='ServerLevel[New World]', x=-93.50, y=100.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/752, l='ServerLevel[New World]', x=-75.50, y=101.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/753, l='ServerLevel[New World]', x=-71.50, y=101.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/754, l='ServerLevel[New World]', x=-84.50, y=102.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/755, l='ServerLevel[New World]', x=-74.50, y=102.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/756, l='ServerLevel[New World]', x=-92.50, y=103.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/757, l='ServerLevel[New World]', x=-86.50, y=103.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/758, l='ServerLevel[New World]', x=-85.50, y=103.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/759, l='ServerLevel[New World]', x=-75.50, y=103.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/760, l='ServerLevel[New World]', x=-85.50, y=105.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/761, l='ServerLevel[New World]', x=-90.50, y=106.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/762, l='ServerLevel[New World]', x=-91.50, y=108.00, z=-44.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/763, l='ServerLevel[New World]', x=-82.50, y=90.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/764, l='ServerLevel[New World]', x=-80.50, y=92.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/765, l='ServerLevel[New World]', x=-72.50, y=93.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/766, l='ServerLevel[New World]', x=-91.50, y=94.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/767, l='ServerLevel[New World]', x=-86.50, y=94.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/768, l='ServerLevel[New World]', x=-79.50, y=94.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/769, l='ServerLevel[New World]', x=-72.50, y=94.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/770, l='ServerLevel[New World]', x=-71.50, y=94.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/771, l='ServerLevel[New World]', x=-87.50, y=95.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/772, l='ServerLevel[New World]', x=-85.50, y=95.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/773, l='ServerLevel[New World]', x=-76.50, y=95.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/774, l='ServerLevel[New World]', x=-73.50, y=95.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/775, l='ServerLevel[New World]', x=-84.50, y=96.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/776, l='ServerLevel[New World]', x=-78.50, y=96.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/777, l='ServerLevel[New World]', x=-70.50, y=96.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/778, l='ServerLevel[New World]', x=-84.50, y=97.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/779, l='ServerLevel[New World]', x=-80.50, y=97.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/780, l='ServerLevel[New World]', x=-73.50, y=97.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/781, l='ServerLevel[New World]', x=-72.50, y=98.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/782, l='ServerLevel[New World]', x=-71.50, y=98.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/783, l='ServerLevel[New World]', x=-88.50, y=99.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/784, l='ServerLevel[New World]', x=-76.50, y=99.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/785, l='ServerLevel[New World]', x=-72.50, y=99.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/786, l='ServerLevel[New World]', x=-69.50, y=99.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/787, l='ServerLevel[New World]', x=-86.50, y=100.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/788, l='ServerLevel[New World]', x=-86.50, y=101.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Coal Ore'/789, l='ServerLevel[New World]', x=-81.50, y=101.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/790, l='ServerLevel[New World]', x=-74.50, y=101.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/791, l='ServerLevel[New World]', x=-74.50, y=102.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/792, l='ServerLevel[New World]', x=-94.50, y=103.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/793, l='ServerLevel[New World]', x=-92.50, y=103.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Spruce Leaves'/794, l='ServerLevel[New World]', x=-66.50, y=104.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/795, l='ServerLevel[New World]', x=-88.50, y=105.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/796, l='ServerLevel[New World]', x=-87.50, y=105.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/797, l='ServerLevel[New World]', x=-84.50, y=105.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/798, l='ServerLevel[New World]', x=-86.50, y=106.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/799, l='ServerLevel[New World]', x=-92.50, y=107.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/800, l='ServerLevel[New World]', x=-91.50, y=107.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/801, l='ServerLevel[New World]', x=-84.50, y=107.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/802, l='ServerLevel[New World]', x=-86.50, y=108.00, z=-43.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/803, l='ServerLevel[New World]', x=-83.50, y=90.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/804, l='ServerLevel[New World]', x=-80.50, y=90.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/805, l='ServerLevel[New World]', x=-79.50, y=91.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/806, l='ServerLevel[New World]', x=-74.50, y=92.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/807, l='ServerLevel[New World]', x=-87.50, y=93.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/808, l='ServerLevel[New World]', x=-86.50, y=93.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/809, l='ServerLevel[New World]', x=-82.50, y=93.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/810, l='ServerLevel[New World]', x=-71.50, y=93.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/811, l='ServerLevel[New World]', x=-89.50, y=94.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/812, l='ServerLevel[New World]', x=-80.50, y=94.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/813, l='ServerLevel[New World]', x=-76.50, y=94.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/814, l='ServerLevel[New World]', x=-72.50, y=95.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/815, l='ServerLevel[New World]', x=-89.50, y=96.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/816, l='ServerLevel[New World]', x=-92.50, y=97.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/817, l='ServerLevel[New World]', x=-74.50, y=97.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/818, l='ServerLevel[New World]', x=-85.50, y=98.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/819, l='ServerLevel[New World]', x=-84.50, y=98.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/820, l='ServerLevel[New World]', x=-77.50, y=98.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/821, l='ServerLevel[New World]', x=-92.50, y=99.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/822, l='ServerLevel[New World]', x=-84.50, y=99.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/823, l='ServerLevel[New World]', x=-70.50, y=99.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/824, l='ServerLevel[New World]', x=-91.50, y=100.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/825, l='ServerLevel[New World]', x=-87.50, y=100.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/826, l='ServerLevel[New World]', x=-86.50, y=100.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/827, l='ServerLevel[New World]', x=-90.50, y=101.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/828, l='ServerLevel[New World]', x=-74.50, y=101.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/829, l='ServerLevel[New World]', x=-93.50, y=102.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/830, l='ServerLevel[New World]', x=-87.50, y=102.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/831, l='ServerLevel[New World]', x=-93.50, y=103.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/832, l='ServerLevel[New World]', x=-86.50, y=103.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/833, l='ServerLevel[New World]', x=-77.50, y=103.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/834, l='ServerLevel[New World]', x=-88.50, y=106.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/835, l='ServerLevel[New World]', x=-87.50, y=106.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/836, l='ServerLevel[New World]', x=-86.50, y=106.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/837, l='ServerLevel[New World]', x=-82.50, y=106.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/838, l='ServerLevel[New World]', x=-90.50, y=107.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/839, l='ServerLevel[New World]', x=-85.50, y=108.00, z=-42.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/840, l='ServerLevel[New World]', x=-78.50, y=90.00, z=-41.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/841, l='ServerLevel[New World]', x=-85.50, y=92.00, z=-41.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/842, l='ServerLevel[New World]', x=-78.50, y=92.00, z=-41.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/843, l='ServerLevel[New World]', x=-75.50, y=92.00, z=-41.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/844, l='ServerLevel[New World]', x=-71.50, y=93.00, z=-41.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/845, l='ServerLevel[New World]', x=-73.50, y=94.00, z=-41.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/846, l='ServerLevel[New World]', x=-90.50, y=95.00, z=-41.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/847, l='ServerLevel[New World]', x=-70.50, y=95.00, z=-41.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/848, l='ServerLevel[New World]', x=-78.50, y=96.00, z=-41.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Coal Ore'/849, l='ServerLevel[New World]', x=-74.50, y=96.00, z=-41.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/850, l='ServerLevel[New World]', x=-90.50, y=98.00, z=-41.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/851, l='ServerLevel[New World]', x=-83.50, y=98.00, z=-41.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/852, l='ServerLevel[New World]', x=-72.50, y=98.00, z=-41.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/853, l='ServerLevel[New World]', x=-70.50, y=99.00, z=-41.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/854, l='ServerLevel[New World]', x=-82.50, y=100.00, z=-41.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/855, l='ServerLevel[New World]', x=-73.50, y=100.00, z=-41.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/856, l='ServerLevel[New World]', x=-91.50, y=101.00, z=-41.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/857, l='ServerLevel[New World]', x=-93.50, y=102.00, z=-41.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/858, l='ServerLevel[New World]', x=-89.50, y=102.00, z=-41.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/859, l='ServerLevel[New World]', x=-88.50, y=102.00, z=-41.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/860, l='ServerLevel[New World]', x=-83.50, y=102.00, z=-41.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/861, l='ServerLevel[New World]', x=-82.50, y=102.00, z=-41.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/862, l='ServerLevel[New World]', x=-83.50, y=103.00, z=-41.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/863, l='ServerLevel[New World]', x=-73.50, y=103.00, z=-41.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/864, l='ServerLevel[New World]', x=-90.50, y=104.00, z=-41.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/865, l='ServerLevel[New World]', x=-92.50, y=105.00, z=-41.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/866, l='ServerLevel[New World]', x=-84.50, y=105.00, z=-41.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/867, l='ServerLevel[New World]', x=-88.50, y=106.00, z=-41.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/868, l='ServerLevel[New World]', x=-89.50, y=107.00, z=-41.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/869, l='ServerLevel[New World]', x=-84.50, y=107.00, z=-41.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/870, l='ServerLevel[New World]', x=-87.50, y=108.00, z=-41.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/871, l='ServerLevel[New World]', x=-78.50, y=90.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/872, l='ServerLevel[New World]', x=-85.50, y=91.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/873, l='ServerLevel[New World]', x=-84.50, y=91.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/874, l='ServerLevel[New World]', x=-80.50, y=91.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/875, l='ServerLevel[New World]', x=-75.50, y=92.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/876, l='ServerLevel[New World]', x=-87.50, y=93.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/877, l='ServerLevel[New World]', x=-74.50, y=93.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/878, l='ServerLevel[New World]', x=-72.50, y=93.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/879, l='ServerLevel[New World]', x=-73.50, y=94.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/880, l='ServerLevel[New World]', x=-90.50, y=95.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/881, l='ServerLevel[New World]', x=-80.50, y=95.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/882, l='ServerLevel[New World]', x=-75.50, y=95.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/883, l='ServerLevel[New World]', x=-91.50, y=96.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/884, l='ServerLevel[New World]', x=-83.50, y=96.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/885, l='ServerLevel[New World]', x=-70.50, y=96.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/886, l='ServerLevel[New World]', x=-89.50, y=97.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/887, l='ServerLevel[New World]', x=-82.50, y=97.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/888, l='ServerLevel[New World]', x=-91.50, y=98.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/889, l='ServerLevel[New World]', x=-80.50, y=98.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/890, l='ServerLevel[New World]', x=-73.50, y=98.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/891, l='ServerLevel[New World]', x=-71.50, y=98.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/892, l='ServerLevel[New World]', x=-77.50, y=99.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/893, l='ServerLevel[New World]', x=-73.50, y=99.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/894, l='ServerLevel[New World]', x=-73.50, y=101.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/895, l='ServerLevel[New World]', x=-90.50, y=102.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/896, l='ServerLevel[New World]', x=-83.50, y=102.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/897, l='ServerLevel[New World]', x=-80.50, y=102.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/898, l='ServerLevel[New World]', x=-78.50, y=102.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/899, l='ServerLevel[New World]', x=-93.50, y=103.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/900, l='ServerLevel[New World]', x=-85.50, y=105.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/901, l='ServerLevel[New World]', x=-93.50, y=107.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/902, l='ServerLevel[New World]', x=-87.50, y=107.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/903, l='ServerLevel[New World]', x=-83.50, y=107.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/904, l='ServerLevel[New World]', x=-88.50, y=108.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/905, l='ServerLevel[New World]', x=-84.50, y=108.00, z=-40.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/906, l='ServerLevel[New World]', x=-81.50, y=92.00, z=-39.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/907, l='ServerLevel[New World]', x=-74.50, y=93.00, z=-39.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Coal Ore'/908, l='ServerLevel[New World]', x=-88.50, y=94.00, z=-39.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Coal Ore'/909, l='ServerLevel[New World]', x=-86.50, y=94.00, z=-39.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/910, l='ServerLevel[New World]', x=-73.50, y=94.00, z=-39.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/911, l='ServerLevel[New World]', x=-75.50, y=95.00, z=-39.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/912, l='ServerLevel[New World]', x=-72.50, y=95.00, z=-39.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/913, l='ServerLevel[New World]', x=-77.50, y=96.00, z=-39.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/914, l='ServerLevel[New World]', x=-90.50, y=97.00, z=-39.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/915, l='ServerLevel[New World]', x=-83.50, y=97.00, z=-39.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/916, l='ServerLevel[New World]', x=-74.50, y=97.00, z=-39.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/917, l='ServerLevel[New World]', x=-71.50, y=97.00, z=-39.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/918, l='ServerLevel[New World]', x=-89.50, y=98.00, z=-39.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/919, l='ServerLevel[New World]', x=-88.50, y=98.00, z=-39.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/920, l='ServerLevel[New World]', x=-79.50, y=98.00, z=-39.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/921, l='ServerLevel[New World]', x=-73.50, y=98.00, z=-39.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/922, l='ServerLevel[New World]', x=-83.50, y=99.00, z=-39.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/923, l='ServerLevel[New World]', x=-93.50, y=100.00, z=-39.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/924, l='ServerLevel[New World]', x=-89.50, y=101.00, z=-39.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/925, l='ServerLevel[New World]', x=-86.50, y=101.00, z=-39.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/926, l='ServerLevel[New World]', x=-85.50, y=102.00, z=-39.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/927, l='ServerLevel[New World]', x=-81.50, y=104.00, z=-39.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/928, l='ServerLevel[New World]', x=-90.50, y=106.00, z=-39.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/929, l='ServerLevel[New World]', x=-82.50, y=106.00, z=-39.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/930, l='ServerLevel[New World]', x=-79.50, y=91.00, z=-38.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/931, l='ServerLevel[New World]', x=-85.50, y=92.00, z=-38.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/932, l='ServerLevel[New World]', x=-79.50, y=93.00, z=-38.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/933, l='ServerLevel[New World]', x=-75.50, y=93.00, z=-38.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Coal Ore'/934, l='ServerLevel[New World]', x=-84.50, y=94.00, z=-38.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/935, l='ServerLevel[New World]', x=-82.50, y=94.00, z=-38.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/936, l='ServerLevel[New World]', x=-78.50, y=94.00, z=-38.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/937, l='ServerLevel[New World]', x=-76.50, y=94.00, z=-38.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/938, l='ServerLevel[New World]', x=-87.50, y=95.00, z=-38.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Coal Ore'/939, l='ServerLevel[New World]', x=-86.50, y=95.00, z=-38.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/940, l='ServerLevel[New World]', x=-71.50, y=96.00, z=-38.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/941, l='ServerLevel[New World]', x=-85.50, y=97.00, z=-38.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/942, l='ServerLevel[New World]', x=-74.50, y=98.00, z=-38.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/943, l='ServerLevel[New World]', x=-80.50, y=99.00, z=-38.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/944, l='ServerLevel[New World]', x=-79.50, y=99.00, z=-38.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/945, l='ServerLevel[New World]', x=-75.50, y=100.00, z=-38.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/946, l='ServerLevel[New World]', x=-84.50, y=101.00, z=-38.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/947, l='ServerLevel[New World]', x=-82.50, y=101.00, z=-38.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/948, l='ServerLevel[New World]', x=-93.50, y=102.00, z=-38.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/949, l='ServerLevel[New World]', x=-90.50, y=103.00, z=-38.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/950, l='ServerLevel[New World]', x=-89.50, y=103.00, z=-38.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/951, l='ServerLevel[New World]', x=-78.50, y=106.00, z=-38.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/952, l='ServerLevel[New World]', x=-75.50, y=106.00, z=-38.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/953, l='ServerLevel[New World]', x=-76.50, y=94.00, z=-37.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/954, l='ServerLevel[New World]', x=-85.50, y=95.00, z=-37.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/955, l='ServerLevel[New World]', x=-79.50, y=95.00, z=-37.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/956, l='ServerLevel[New World]', x=-76.50, y=95.00, z=-37.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/957, l='ServerLevel[New World]', x=-83.50, y=96.00, z=-37.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/958, l='ServerLevel[New World]', x=-84.50, y=97.00, z=-37.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/959, l='ServerLevel[New World]', x=-91.50, y=98.00, z=-37.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/960, l='ServerLevel[New World]', x=-91.50, y=99.00, z=-37.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/961, l='ServerLevel[New World]', x=-76.50, y=99.00, z=-37.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/962, l='ServerLevel[New World]', x=-72.50, y=99.00, z=-37.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/963, l='ServerLevel[New World]', x=-89.50, y=100.00, z=-37.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/964, l='ServerLevel[New World]', x=-87.50, y=101.00, z=-37.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/965, l='ServerLevel[New World]', x=-85.50, y=101.00, z=-37.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/966, l='ServerLevel[New World]', x=-78.50, y=101.00, z=-37.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/967, l='ServerLevel[New World]', x=-69.50, y=101.00, z=-37.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/968, l='ServerLevel[New World]', x=-81.50, y=103.00, z=-37.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/969, l='ServerLevel[New World]', x=-86.50, y=104.00, z=-37.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/970, l='ServerLevel[New World]', x=-81.50, y=104.00, z=-37.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/971, l='ServerLevel[New World]', x=-78.50, y=105.00, z=-37.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/972, l='ServerLevel[New World]', x=-78.50, y=106.00, z=-37.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/973, l='ServerLevel[New World]', x=-85.50, y=109.00, z=-37.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/974, l='ServerLevel[New World]', x=-81.50, y=94.00, z=-36.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/975, l='ServerLevel[New World]', x=-84.50, y=95.00, z=-36.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/976, l='ServerLevel[New World]', x=-73.50, y=95.00, z=-36.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/977, l='ServerLevel[New World]', x=-76.50, y=96.00, z=-36.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/978, l='ServerLevel[New World]', x=-77.50, y=97.00, z=-36.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/979, l='ServerLevel[New World]', x=-81.50, y=98.00, z=-36.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/980, l='ServerLevel[New World]', x=-90.50, y=99.00, z=-36.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/981, l='ServerLevel[New World]', x=-82.50, y=99.00, z=-36.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/982, l='ServerLevel[New World]', x=-74.50, y=100.00, z=-36.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/983, l='ServerLevel[New World]', x=-73.50, y=100.00, z=-36.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/984, l='ServerLevel[New World]', x=-85.50, y=102.00, z=-36.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/985, l='ServerLevel[New World]', x=-87.50, y=103.00, z=-36.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/986, l='ServerLevel[New World]', x=-91.50, y=104.00, z=-36.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/987, l='ServerLevel[New World]', x=-85.50, y=104.00, z=-36.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/988, l='ServerLevel[New World]', x=-85.50, y=108.00, z=-36.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/989, l='ServerLevel[New World]', x=-82.50, y=93.00, z=-35.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/990, l='ServerLevel[New World]', x=-83.50, y=94.00, z=-35.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/991, l='ServerLevel[New World]', x=-78.50, y=94.00, z=-35.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/992, l='ServerLevel[New World]', x=-74.50, y=95.00, z=-35.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/993, l='ServerLevel[New World]', x=-86.50, y=96.00, z=-35.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/994, l='ServerLevel[New World]', x=-90.50, y=99.00, z=-35.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/995, l='ServerLevel[New World]', x=-89.50, y=99.00, z=-35.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/996, l='ServerLevel[New World]', x=-86.50, y=99.00, z=-35.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/997, l='ServerLevel[New World]', x=-83.50, y=99.00, z=-35.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/998, l='ServerLevel[New World]', x=-80.50, y=99.00, z=-35.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/999, l='ServerLevel[New World]', x=-82.50, y=100.00, z=-35.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1000, l='ServerLevel[New World]', x=-81.50, y=100.00, z=-35.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/1001, l='ServerLevel[New World]', x=-87.50, y=101.00, z=-35.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/1002, l='ServerLevel[New World]', x=-85.50, y=101.00, z=-35.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1003, l='ServerLevel[New World]', x=-90.50, y=102.00, z=-35.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/1004, l='ServerLevel[New World]', x=-72.50, y=102.00, z=-35.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/1005, l='ServerLevel[New World]', x=-89.50, y=103.00, z=-35.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/1006, l='ServerLevel[New World]', x=-88.50, y=103.00, z=-35.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1007, l='ServerLevel[New World]', x=-87.50, y=103.00, z=-35.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1008, l='ServerLevel[New World]', x=-83.50, y=103.00, z=-35.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1009, l='ServerLevel[New World]', x=-77.50, y=103.00, z=-35.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/1010, l='ServerLevel[New World]', x=-74.50, y=105.00, z=-35.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/1011, l='ServerLevel[New World]', x=-76.50, y=106.00, z=-35.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/1012, l='ServerLevel[New World]', x=-85.50, y=107.00, z=-35.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/1013, l='ServerLevel[New World]', x=-85.50, y=108.00, z=-35.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1014, l='ServerLevel[New World]', x=-83.50, y=95.00, z=-34.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1015, l='ServerLevel[New World]', x=-80.50, y=95.00, z=-34.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1016, l='ServerLevel[New World]', x=-86.50, y=96.00, z=-34.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1017, l='ServerLevel[New World]', x=-74.50, y=96.00, z=-34.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1018, l='ServerLevel[New World]', x=-85.50, y=97.00, z=-34.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1019, l='ServerLevel[New World]', x=-82.50, y=98.00, z=-34.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1020, l='ServerLevel[New World]', x=-81.50, y=99.00, z=-34.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1021, l='ServerLevel[New World]', x=-72.50, y=101.00, z=-34.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1022, l='ServerLevel[New World]', x=-85.50, y=103.00, z=-34.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1023, l='ServerLevel[New World]', x=-83.50, y=103.00, z=-34.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1024, l='ServerLevel[New World]', x=-76.50, y=103.00, z=-34.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/1025, l='ServerLevel[New World]', x=-74.50, y=104.00, z=-34.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1026, l='ServerLevel[New World]', x=-82.50, y=96.00, z=-33.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1027, l='ServerLevel[New World]', x=-80.50, y=96.00, z=-33.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1028, l='ServerLevel[New World]', x=-78.50, y=98.00, z=-33.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1029, l='ServerLevel[New World]', x=-80.50, y=99.00, z=-33.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1030, l='ServerLevel[New World]', x=-78.50, y=99.00, z=-33.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1031, l='ServerLevel[New World]', x=-77.50, y=99.00, z=-33.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1032, l='ServerLevel[New World]', x=-80.50, y=100.00, z=-33.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/1033, l='ServerLevel[New World]', x=-86.50, y=101.00, z=-33.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1034, l='ServerLevel[New World]', x=-79.50, y=101.00, z=-33.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1035, l='ServerLevel[New World]', x=-83.50, y=102.00, z=-33.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1036, l='ServerLevel[New World]', x=-79.50, y=102.00, z=-33.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1037, l='ServerLevel[New World]', x=-74.50, y=102.00, z=-33.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/1038, l='ServerLevel[New World]', x=-73.50, y=103.00, z=-33.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1039, l='ServerLevel[New World]', x=-80.50, y=104.00, z=-33.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/1040, l='ServerLevel[New World]', x=-74.50, y=104.00, z=-33.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/1041, l='ServerLevel[New World]', x=-78.50, y=105.00, z=-33.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Grass Block'/1042, l='ServerLevel[New World]', x=-76.50, y=106.00, z=-33.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Snow'/1043, l='ServerLevel[New World]', x=-72.50, y=107.00, z=-33.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Dirt'/1044, l='ServerLevel[New World]', x=-82.50, y=108.00, z=-33.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1045, l='ServerLevel[New World]', x=-82.50, y=98.00, z=-32.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1046, l='ServerLevel[New World]', x=-79.50, y=98.00, z=-32.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1047, l='ServerLevel[New World]', x=-76.50, y=98.00, z=-32.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1048, l='ServerLevel[New World]', x=-85.50, y=101.00, z=-32.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1049, l='ServerLevel[New World]', x=-83.50, y=101.00, z=-32.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1050, l='ServerLevel[New World]', x=-81.50, y=101.00, z=-32.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1051, l='ServerLevel[New World]', x=-79.50, y=103.00, z=-32.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1052, l='ServerLevel[New World]', x=-83.50, y=105.00, z=-32.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1053, l='ServerLevel[New World]', x=-79.50, y=99.00, z=-31.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1054, l='ServerLevel[New World]', x=-80.50, y=100.00, z=-31.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1055, l='ServerLevel[New World]', x=-81.50, y=101.00, z=-31.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1056, l='ServerLevel[New World]', x=-78.50, y=101.00, z=-31.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1057, l='ServerLevel[New World]', x=-81.50, y=102.00, z=-31.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1058, l='ServerLevel[New World]', x=-77.50, y=103.00, z=-31.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1059, l='ServerLevel[New World]', x=-78.50, y=104.00, z=-31.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1060, l='ServerLevel[New World]', x=-77.50, y=104.00, z=-31.50]
+[19:11:45] [Server thread/WARN] (Minecraft) UUID of added entity already exists: FallingBlockEntity['Falling Stone'/1061, l='ServerLevel[New World]', x=-82.50, y=106.00, z=-31.50]
+[19:18:30] [Render thread/INFO] (Minecraft) Stopping!
+[19:18:30] [Server thread/INFO] (Minecraft) Player865 lost connection: Disconnected
+[19:18:30] [Server thread/INFO] (Minecraft) Player865 left the game
+[19:18:30] [Server thread/INFO] (Minecraft) Stopping singleplayer server as player logged out
+[19:18:30] [Server thread/INFO] (Minecraft) Stopping server
+[19:18:30] [Server thread/INFO] (Minecraft) Saving players
+[19:18:30] [Server thread/INFO] (Minecraft) Saving worlds
+[19:18:30] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[19:18:31] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[19:18:31] [Server thread/INFO] (Minecraft) Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[19:18:31] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (New World): All chunks are saved
+[19:18:31] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[19:18:31] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[19:18:31] [Server thread/INFO] (Minecraft) ThreadedAnvilChunkStorage: All dimensions are saved
+[19:18:31] [Render thread/INFO] (ChunkBuilder) Stopping worker threads
