@@ -1,7 +1,11 @@
 package name.blowup;
 
+import name.blowup.blocks.CustomTNTBlock;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.TntBlock;
 import net.minecraft.entity.FallingBlockEntity;
+import net.minecraft.entity.TntEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -9,44 +13,84 @@ import net.minecraft.util.math.Vec3d;
 public class Kaboom {
     private static final java.util.Random random = new java.util.Random();
     /**
-     * Fling blocks in a spherical area around a center point.
-     * This uses the world, position desired, radius then explosive power to fling blocks.
+     * Fling blocks in a sphere around a center point.
      *
      * @param world The world where the blocks are located.
      * @param center The center point of the sphere.
-     * @param radius The radius of the sphere.
-     * @param maxY The maximum vertical velocity.
+     * @param flingRadius The radius within which blocks will be flung.
+     * @param destructionRadius The radius within which blocks will be destroyed.
+     * @param maxY The maximum vertical velocity for the blocks.
      * @param decay The decay factor for the velocity.
-     * @param skipChance The chance to skip a block (0.0 to 1.0).
+     * @param flingChance The chance that a block will be flung.
      */
-    public static void flingBlocksInSphere(ServerWorld world, Vec3d center, int radius, double maxY, double decay, double skipChance) {
+    public static void destroyAndFlingBlocks(ServerWorld world, Vec3d center, int flingRadius, int destructionRadius, double maxY, double decay, double flingChance) {
         BlockPos origin = BlockPos.ofFloored(center);
-
-        for (BlockPos pos : BlockPos.iterate(origin.add(-radius, -radius, -radius), origin.add(radius, radius, radius))) {
-            // Optional: true spherical filter
-            if (origin.getSquaredDistance(pos) > radius * radius) continue;
+        // Loop over the entire destruction sphere.
+        for (BlockPos pos : BlockPos.iterate(origin.add(-destructionRadius, -destructionRadius, -destructionRadius),
+                                             origin.add(destructionRadius, destructionRadius, destructionRadius))) {
+            // Only consider blocks within the destruction radius.
+            if (origin.getSquaredDistance(pos) > destructionRadius * destructionRadius) continue;
 
             BlockState state = world.getBlockState(pos);
             if (state.isAir() || state.getHardness(world, pos) < 0) continue;
-            if (world.random.nextDouble() < skipChance) continue;
 
-            Vec3d blockCenter = Vec3d.ofCenter(pos);
-            Vec3d velocity = calcVelocity(blockCenter, center, maxY, decay);
+            // Determine if this block is within the inner (fling) radius.
+            boolean isInFlingRadius = origin.getSquaredDistance(pos) <= flingRadius * flingRadius;
+            boolean shouldFling = isInFlingRadius && world.random.nextDouble() < flingChance;
 
-            boolean skipFling = world.random.nextDouble() < skipChance;
-            if (!skipFling) {
+            if (shouldFling) {
+                Vec3d blockCenter = Vec3d.ofCenter(pos);
+                Vec3d velocity = calcVelocity(blockCenter, center, maxY, decay);
                 FallingBlockEntity fb = FallingBlockEntity.spawnFromBlock(world, pos, state);
-                if (fb != null) {
-                    fb.setVelocity(velocity);
-                    if (random.nextDouble() > 0.1)
-                        fb.dropItem = false;
-                    world.spawnEntity(fb);
-                }
+
+                fb.setVelocity(velocity);
+                // Optionally disable item drop.
+                if (world.random.nextDouble() < 0.9)
+                    fb.dropItem = false;
+                world.spawnEntity(fb);
             }
 
-            // Remove block either way
-            world.removeBlock(pos, false);
+            // Remove the block and update neighbors.
+            world.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
+        }
+    }
+    /**
+     * Triggers chain reactions by priming any TNT blocks (vanilla or custom)
+     * within the given radius from the explosion center.
+     *
+     * @param world The world where the explosion occurs.
+     * @param center The center point of the explosion.
+     * @param chainReactionRadius The radius in which TNT blocks should be primed.
+     */
+    public static void triggerChainReaction(ServerWorld world, Vec3d center, int chainReactionRadius) {
+        BlockPos origin = BlockPos.ofFloored(center);
 
+        // Loop over all blocks within the chain reaction radius.
+        for (BlockPos pos : BlockPos.iterate(
+                origin.add(-chainReactionRadius, -chainReactionRadius, -chainReactionRadius),
+                origin.add(chainReactionRadius, chainReactionRadius, chainReactionRadius))) {
+
+            // Ensure the block is within a spherical radius.
+            if (origin.getSquaredDistance(pos) > chainReactionRadius * chainReactionRadius) continue;
+
+            BlockState state = world.getBlockState(pos);
+            if (state.isAir()) continue;
+
+            // Check if this block is a TNT block (vanilla or custom).
+            if (state.getBlock() instanceof TntBlock) {
+                // Remove the block and update neighbors.
+                world.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
+
+                // For custom TNT blocks, use their priming logic.
+                if (state.getBlock() instanceof CustomTNTBlock customTNT) {
+                    customTNT.primeChainReactionTntEntity(world, pos, null);
+                } else {
+                    // For vanilla TNT, create a TntEntity and use the helper.
+                    TntEntity vanillaTnt = new TntEntity(world, pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, null);
+                    ExplosionUtil.primeChainReactionTntEntity(world, pos, vanillaTnt);
+                }
+
+            }
         }
     }
 
@@ -74,4 +118,11 @@ public class Kaboom {
         return new Vec3d(horizontalVelocity.x, clampedY, horizontalVelocity.z);
     }
 
+    public static void giveTntHop(TntEntity entity) {
+        entity.setVelocity(
+                random.nextDouble() * 0.02 - 0.01,
+                0.2,
+                random.nextDouble() * 0.02 - 0.01
+        );
+    }
 }

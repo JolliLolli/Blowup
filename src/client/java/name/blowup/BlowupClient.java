@@ -10,6 +10,6 @@ public class BlowupClient implements ClientModInitializer {
 	public void onInitializeClient() {
 		// Register the renderer for your custom TNT entity.
 		// Using the vanilla TntEntityRenderer for simplicity.
-		EntityRendererRegistry.register(ModEntities.BIG_TNT_ENTITY, TntEntityRenderer::new);
+		EntityRendererRegistry.register(ModEntities.NUKE_ENTITY, TntEntityRenderer::new);
 	}
 }

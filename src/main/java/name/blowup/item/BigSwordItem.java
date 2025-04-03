@@ -10,6 +10,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 
 public class BigSwordItem extends SwordItem {
+
     public BigSwordItem(ToolMaterial material, float attackDamage, float attackSpeed, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
     }
@@ -26,7 +27,6 @@ public class BigSwordItem extends SwordItem {
         // For particles: Use target.world.spawnParticles(...);
         if (!target.getWorld().isClient()) {
             World world = target.getWorld();
-            // Set the target on fire and play a sound
             target.setOnFireFor(5);
             world.playSound(
                     null,
@@ -37,13 +37,9 @@ public class BigSwordItem extends SwordItem {
             );
 
             // Explode
-
-            Kaboom.flingBlocksInSphere((ServerWorld) world, target.getPos(), 3, 0.8, 0.7, 0.0);
-
+            Kaboom.triggerChainReaction((ServerWorld) world, target.getPos(), 3);
+            Kaboom.destroyAndFlingBlocks((ServerWorld) world, target.getPos(), 3, 3, 0.8, 0.7, 0.0);
         }
-
         return result;
     }
-
-
 }

@@ -19,7 +19,7 @@ import java.util.function.Function;
 public class ModBlocks {
     public static final Block NUKE = register(
             "nuke",
-            BigTNT::new,
+            Nuke::new,
             AbstractBlock.Settings.create().sounds(BlockSoundGroup.GRASS),
             true
     );

@@ -9,12 +9,12 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 
 public class ModEntities {
-    public static final EntityType<BigTNTEntity> BIG_TNT_ENTITY = Registry.register(
+    public static final EntityType<NukeEntity> NUKE_ENTITY = Registry.register(
             Registries.ENTITY_TYPE,
-            Identifier.of("blowup", "big_tnt"),
-            EntityType.Builder.create(BigTNTEntity::new, SpawnGroup.MISC)
+            Identifier.of("blowup", "nuke"),
+            EntityType.Builder.create(NukeEntity::new, SpawnGroup.MISC)
                     .dimensions(0.98f, 0.98f) // specify width and height directly
-                    .build(RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of("blowup", "big_tnt")))
+                    .build(RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of("blowup", "nuke")))
     );
 
     public static void register() {
