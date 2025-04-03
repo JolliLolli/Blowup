@@ -38,7 +38,8 @@ public class Kaboom {
                 FallingBlockEntity fb = FallingBlockEntity.spawnFromBlock(world, pos, state);
                 if (fb != null) {
                     fb.setVelocity(velocity);
-                    fb.dropItem = false;
+                    if (random.nextDouble() > 0.1)
+                        fb.dropItem = false;
                     world.spawnEntity(fb);
                 }
             }
