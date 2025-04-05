@@ -1,7 +1,6 @@
 package name.blowup.item;
 
 import name.blowup.utils.ExplosionUtil;
-import name.blowup.utils.Kaboom;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;

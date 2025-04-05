@@ -15,9 +15,6 @@ public class BlowupClient implements ClientModInitializer {
 		EntityRendererRegistry.register(ModEntities.NUKE_ENTITY, TntEntityRenderer::new);
 		EntityRendererRegistry.register(ModEntities.BLACK_HOLE_TNT_ENTITY, TntEntityRenderer::new);
 		EntityRendererRegistry.register(ModEntities.BLACK_HOLE_ENTITY, BlackHoleRenderer::new);
-		EntityRendererRegistry.register(
-				ModEntities.BLACK_HOLE_FALLING_BLOCK_ENTITY,
-				context -> new FallingBlockEntityRenderer(context)
-		);
+		EntityRendererRegistry.register(ModEntities.BLACK_HOLE_FALLING_BLOCK_ENTITY, FallingBlockEntityRenderer::new);
 	}
 }

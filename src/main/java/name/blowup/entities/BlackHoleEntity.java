@@ -26,7 +26,6 @@ import java.util.Random;
  * It handles its own lifecycle (growing, holding, and shrinking) and delegates
  * the heavy lifting of block absorption to BlackHoleUtils. Customize parameters such
  * as scale and timings in the tick() method.
- *
  * It doesn't have an explode() method as it doesn't explode like TNT.
  */
 public class BlackHoleEntity extends Entity {

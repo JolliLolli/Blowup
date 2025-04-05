@@ -3,7 +3,6 @@ package name.blowup.utils;
 import name.blowup.entities.BlackHoleFallingBlockEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.entity.FallingBlockEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -75,7 +74,7 @@ public class BlackHoleUtils {
                                               double inwardSpeed, double swirlSpeed) {
         int count = Math.min(blocksPerTick, positions.size());
         for (int i = 0; i < count; i++) {
-            BlockPos pos = positions.remove(0);
+            BlockPos pos = positions.removeFirst();
             BlockState state = world.getBlockState(pos);
             if (state.isAir() || state.getHardness(world, pos) < 0) continue;
 

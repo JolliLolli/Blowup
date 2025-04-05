@@ -11,6 +11,7 @@ import net.minecraft.util.Identifier;
  * There aren't any yet, but this is a good place to put them.
  * It contains a static field for the custom model data component.
  */
+@SuppressWarnings("unused")
 public class ModComponents {
     public static final ComponentType<?> CUSTOM_MODEL = Registry.register(
             Registries.DATA_COMPONENT_TYPE,
