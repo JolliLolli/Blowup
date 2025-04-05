@@ -99,9 +99,6 @@ public class BlackHoleUtils {
 
             FallingBlockEntity fb = FallingBlockEntity.spawnFromBlock(world, pos, state);
             fb.setVelocity(velocity);
-            if (world.random.nextDouble() < 0.9) {
-                fb.dropItem = false;
-            }
             world.spawnEntity(fb);
         }
     }
@@ -150,36 +147,36 @@ public class BlackHoleUtils {
 //        }
 //    }
 
-    /**
-     * Calculates a velocity vector for a block based on its position relative to the center.
-     * The resulting velocity combines an inward (radial) component with a tangential (swirl) component.
-     *
-     * @param center       The center point of the effect.
-     * @param blockCenter  The center of the block.
-     * @param diskNormal   The normal vector defining the accretion disk plane.
-     * @param inwardSpeed  The multiplier for the inward component.
-     * @param swirlSpeed   The multiplier for the swirl component.
-     * @return A Vec3d representing the final velocity.
-     */
-    public static Vec3d calcSwirlVelocity(Vec3d center, Vec3d blockCenter, Vec3d diskNormal,
-                                          double inwardSpeed, double swirlSpeed) {
-        Vec3d radial = center.subtract(blockCenter);
-        Vec3d inward = radial.normalize().multiply(inwardSpeed);
-
-        // Project the radial vector onto the accretion disk plane.
-        Vec3d radialInPlane = radial.subtract(diskNormal.multiply(radial.dotProduct(diskNormal)));
-        if (radialInPlane.lengthSquared() < 1e-4) {
-            radialInPlane = diskNormal.crossProduct(new Vec3d(1, 0, 0));
-            if (radialInPlane.lengthSquared() < 1e-4) {
-                radialInPlane = diskNormal.crossProduct(new Vec3d(0, 1, 0));
-            }
-        }
-        radialInPlane = radialInPlane.normalize();
-        Vec3d tangential = diskNormal.crossProduct(radialInPlane).normalize();
-        Vec3d swirl = tangential.multiply(swirlSpeed);
-
-        return inward.add(swirl);
-    }
+//    /**
+//     * Calculates a velocity vector for a block based on its position relative to the center.
+//     * The resulting velocity combines an inward (radial) component with a tangential (swirl) component.
+//     *
+//     * @param center       The center point of the effect.
+//     * @param blockCenter  The center of the block.
+//     * @param diskNormal   The normal vector defining the accretion disk plane.
+//     * @param inwardSpeed  The multiplier for the inward component.
+//     * @param swirlSpeed   The multiplier for the swirl component.
+//     * @return A Vec3d representing the final velocity.
+//     */
+//    public static Vec3d calcSwirlVelocity(Vec3d center, Vec3d blockCenter, Vec3d diskNormal,
+//                                          double inwardSpeed, double swirlSpeed) {
+//        Vec3d radial = center.subtract(blockCenter);
+//        Vec3d inward = radial.normalize().multiply(inwardSpeed);
+//
+//        // Project the radial vector onto the accretion disk plane.
+//        Vec3d radialInPlane = radial.subtract(diskNormal.multiply(radial.dotProduct(diskNormal)));
+//        if (radialInPlane.lengthSquared() < 1e-4) {
+//            radialInPlane = diskNormal.crossProduct(new Vec3d(1, 0, 0));
+//            if (radialInPlane.lengthSquared() < 1e-4) {
+//                radialInPlane = diskNormal.crossProduct(new Vec3d(0, 1, 0));
+//            }
+//        }
+//        radialInPlane = radialInPlane.normalize();
+//        Vec3d tangential = diskNormal.crossProduct(radialInPlane).normalize();
+//        Vec3d swirl = tangential.multiply(swirlSpeed);
+//
+//        return inward.add(swirl);
+//    }
 
     /**
      * Generates and returns a random unit vector.

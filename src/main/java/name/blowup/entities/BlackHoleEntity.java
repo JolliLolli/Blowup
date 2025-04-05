@@ -30,10 +30,9 @@ import java.util.Random;
 public class BlackHoleEntity extends Entity {
 
     private float scale;
-    // For absorption effect:
     private List<BlockPos> absorptionPositions = null;
     private Vec3d diskNormal = null;
-    private World world = getWorld();
+    private final World world = getWorld();
 
     public BlackHoleEntity(EntityType<?> type, World world) {
         super(type, world);
@@ -41,65 +40,14 @@ public class BlackHoleEntity extends Entity {
         this.scale = 0.0F; // Initial scale
     }
 
-//    /**
-//     * Constructor for creating a black hole entity at a specific position.
-//     * You can change the scale values and timing constants for different effects.
-//     */
-//    @Override
-//    public void tick() {
-//        super.tick();
-//
-//        // Lifetime constants
-//        int totalLife = 200;       // 10 seconds @ 20 TPS
-//        int growDuration = 40;     // ticks 0-39: growth
-//        int holdDuration = 140;    // ticks 40-179: hold full size
-//        int shrinkDuration = 20;   // ticks 180-199: shrink
-//        float maxScale = 5.0f;
-//
-//        // Update the age of the entity
-//        if (this.age < growDuration) {
-//            // Ease-in-out grow using a smoothstep curve
-//            float progress = (float) age / growDuration;
-//            this.scale = smoothstep(0.0f, maxScale, progress);
-//        } else if (this.age < growDuration + holdDuration) {
-//            this.scale = maxScale;
-//        } else if (this.age < totalLife) {
-//            // Ease-out shrink
-//            float progress = (float)(this.age - growDuration - holdDuration) / shrinkDuration;
-//            this.scale = smoothstep(maxScale, 0.0f, progress);
-//        } else {
-//            this.discard();
-//        }
-//
-//        // Start the absorption effect at tick 20 and end it at tick 180
-//        // Uses collectAbsorptionPositions to gather blocks
-//        // and processAbsorptionBlocks to handle them.
-//        if (this.age >= 20 && this.age < 180) {
-//            if (absorptionPositions == null) {
-//                int suckRadius = 25;
-//                absorptionPositions = BlackHoleUtils.collectAbsorptionPositions((ServerWorld) world, this.getPos(), suckRadius);
-//                // Shuffle positions using a seeded Random instance.
-//                Random random = new Random(world.random.nextInt());
-//                Collections.shuffle(absorptionPositions, random);
-//                diskNormal = BlackHoleUtils.randomUnitVector(random);
-//            }
-//
-//            // Safely process a few blocks PER TICK — no recursion!
-//            BlackHoleUtils.processAbsorptionBatch(
-//                (ServerWorld) world,
-//                getPos(),
-//                absorptionPositions,
-//                diskNormal,
-//                5,      // blocks per tick
-//                0.1,    // inward speed
-//                0.1     // swirl speed
-//            );
-//        }
-//    }
-
+    /**
+     * Constructor for creating a black hole entity at a specific position.
+     * You can change the scale values and timing constants for different effects.
+     */
     @Override
     public void tick() {
         super.tick();
+
         // Lifetime constants
         int totalLife = 200;       // 10 seconds @ 20 TPS
         int growDuration = 40;     // ticks 0-39: growth
@@ -122,16 +70,29 @@ public class BlackHoleEntity extends Entity {
             this.discard();
         }
 
-        if (this.age >= 20 && this.age < 180) {
+        // Start the absorption effect at tick 20 and end it at tick 180
+        // Uses collectAbsorptionPositions to gather blocks
+        // and processAbsorptionBlocks to handle them.
+        if (!world.isClient && this.age >= 20 && this.age < 180) {
             if (absorptionPositions == null) {
-                absorptionPositions = BlackHoleUtils.collectAbsorptionPositions((ServerWorld) world, getPos(), 10);
+                int suckRadius = 25;
+                absorptionPositions = BlackHoleUtils.collectAbsorptionPositions((ServerWorld) world, this.getPos(), suckRadius);
+                // Shuffle positions using a seeded Random instance.
                 Random random = new Random(world.random.nextInt());
                 Collections.shuffle(absorptionPositions, random);
                 diskNormal = BlackHoleUtils.randomUnitVector(random);
             }
-            // Process a batch of blocks each tick
-            int blocksPerTick = 5;
-            BlackHoleUtils.processAbsorptionBatch((ServerWorld) world, getPos(), absorptionPositions, diskNormal, blocksPerTick, 0.1, 0.1);
+
+            // Safely process a few blocks PER TICK — no recursion!
+            BlackHoleUtils.processAbsorptionBatch(
+                (ServerWorld) world,
+                getPos(),
+                absorptionPositions,
+                diskNormal,
+                5,      // blocks per tick
+                0.1,    // inward speed
+                0.1     // swirl speed
+            );
         }
     }
 

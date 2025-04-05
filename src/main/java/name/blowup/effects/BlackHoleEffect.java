@@ -26,7 +26,6 @@ public class BlackHoleEffect {
      * @param suckRadius The maximum radius of the black hole's effect.
      */
     public static void suckBlocksGradually(ServerWorld world, Vec3d center, int suckRadius) {
-        List<BlockPos> positions = new ArrayList<>();
         int guaranteedRadius = suckRadius - 4;
         int guaranteedRadiusSq = guaranteedRadius * guaranteedRadius;
 

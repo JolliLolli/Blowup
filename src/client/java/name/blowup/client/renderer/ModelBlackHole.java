@@ -15,18 +15,18 @@ import net.minecraft.entity.Entity;
 // Paste this class into your mod and generate all required imports
 @Environment(EnvType.CLIENT)
 public class ModelBlackHole extends EntityModel<EntityRenderState> {
-	private ModelPart bone;
-	private ModelPart hexadecagon2;
-	private ModelPart hexadecagon;
-	private ModelPart bone5;
-	private ModelPart hexadecagon8;
-	private ModelPart hexadecagon9;
-	private ModelPart bone3;
-	private ModelPart hexadecagon5;
-	private ModelPart hexadecagon6;
-	private ModelPart bone4;
-	private ModelPart hexadecagon3;
-	private ModelPart hexadecagon7;
+	private final ModelPart bone;
+	private final ModelPart hexadecagon2;
+	private final ModelPart hexadecagon;
+	private final ModelPart bone5;
+	private final ModelPart hexadecagon8;
+	private final ModelPart hexadecagon9;
+	private final ModelPart bone3;
+	private final ModelPart hexadecagon5;
+	private final ModelPart hexadecagon6;
+	private final ModelPart bone4;
+	private final ModelPart hexadecagon3;
+	private final ModelPart hexadecagon7;
 
 	protected ModelBlackHole(ModelPart root) {
 		super(root);

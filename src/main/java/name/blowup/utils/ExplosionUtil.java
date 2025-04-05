@@ -1,6 +1,5 @@
 package name.blowup.utils;
 
-import name.blowup.effects.BlackHoleEffect;
 import name.blowup.entities.BlackHoleEntity;
 import name.blowup.entities.CustomTNTEntity;
 import name.blowup.entities.ModEntities;
@@ -64,7 +63,6 @@ public class ExplosionUtil {
     }
 
     public static void doBlackHoleExplosion(ServerWorld world, Vec3d center) {
-        BlackHoleEffect.suckBlocksGradually(world, center, 25);
         playStandardExplosionEffects(world, center);
         world.getServer().execute(() -> {
             BlackHoleEntity blackHole = new BlackHoleEntity(ModEntities.BLACK_HOLE_ENTITY, world);
