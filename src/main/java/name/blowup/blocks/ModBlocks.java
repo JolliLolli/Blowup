@@ -32,6 +32,12 @@ public class ModBlocks {
                     .luminance(state -> 1),
             true
     );
+    public static final Block BLACK_HOLE_TNT = register(
+            "black_hole_tnt",
+            BlackHoleTNT::new,
+            AbstractBlock.Settings.create().sounds(BlockSoundGroup.GRASS),
+            true
+    );
 
     private static Block register(String name, Function<AbstractBlock.Settings, Block> blockFactory, AbstractBlock.Settings settings, boolean shouldRegisterItem) {
         // Create a registry key for the block
@@ -61,6 +67,7 @@ public class ModBlocks {
         ItemGroupEvents.modifyEntriesEvent(ModItems.CUSTOM_ITEM_GROUP_KEY).register((itemGroup) -> {
             itemGroup.add(ModBlocks.NUKE.asItem());
             itemGroup.add(ModBlocks.COMPRESSED_COBBLESTONE.asItem());
+            itemGroup.add(ModBlocks.BLACK_HOLE_TNT.asItem());
         });
     }
     private static RegistryKey<Block> keyOfBlock(String name) {

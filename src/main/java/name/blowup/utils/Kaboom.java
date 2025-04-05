@@ -1,4 +1,4 @@
-package name.blowup;
+package name.blowup.utils;
 
 import name.blowup.blocks.CustomTNTBlock;
 import net.minecraft.block.BlockState;
@@ -10,8 +10,13 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Consumer;
+
 public class Kaboom {
     private static final java.util.Random random = new java.util.Random();
+
     /**
      * Fling blocks in a sphere around a center point.
      *
@@ -24,18 +29,11 @@ public class Kaboom {
      * @param flingChance The chance that a block will be flung.
      */
     public static void destroyAndFlingBlocks(ServerWorld world, Vec3d center, int flingRadius, int destructionRadius, double maxY, double decay, double flingChance) {
-        BlockPos origin = BlockPos.ofFloored(center);
-        // Loop over the entire destruction sphere.
-        for (BlockPos pos : BlockPos.iterate(origin.add(-destructionRadius, -destructionRadius, -destructionRadius),
-                                             origin.add(destructionRadius, destructionRadius, destructionRadius))) {
-            // Only consider blocks within the destruction radius.
-            if (origin.getSquaredDistance(pos) > destructionRadius * destructionRadius) continue;
-
+        iterateThroughBlocks(center, destructionRadius, pos -> {
             BlockState state = world.getBlockState(pos);
-            if (state.isAir() || state.getHardness(world, pos) < 0) continue;
+            if (state.isAir() || state.getHardness(world, pos) < 0) return;
 
-            // Determine if this block is within the inner (fling) radius.
-            boolean isInFlingRadius = origin.getSquaredDistance(pos) <= flingRadius * flingRadius;
+            boolean isInFlingRadius = BlockPos.ofFloored(center).getSquaredDistance(pos) <= flingRadius * flingRadius;
             boolean shouldFling = isInFlingRadius && world.random.nextDouble() < flingChance;
 
             if (shouldFling) {
@@ -44,16 +42,15 @@ public class Kaboom {
                 FallingBlockEntity fb = FallingBlockEntity.spawnFromBlock(world, pos, state);
 
                 fb.setVelocity(velocity);
-                // Optionally disable item drop.
-                if (world.random.nextDouble() < 0.9)
-                    fb.dropItem = false;
+                if (world.random.nextDouble() < 0.9) fb.dropItem = false;
                 world.spawnEntity(fb);
             }
 
             // Remove the block and update neighbors.
             world.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
-        }
+        });
     }
+
     /**
      * Triggers chain reactions by priming any TNT blocks (vanilla or custom)
      * within the given radius from the explosion center.
@@ -63,22 +60,12 @@ public class Kaboom {
      * @param chainReactionRadius The radius in which TNT blocks should be primed.
      */
     public static void triggerChainReaction(ServerWorld world, Vec3d center, int chainReactionRadius) {
-        BlockPos origin = BlockPos.ofFloored(center);
-
-        // Loop over all blocks within the chain reaction radius.
-        for (BlockPos pos : BlockPos.iterate(
-                origin.add(-chainReactionRadius, -chainReactionRadius, -chainReactionRadius),
-                origin.add(chainReactionRadius, chainReactionRadius, chainReactionRadius))) {
-
-            // Ensure the block is within a spherical radius.
-            if (origin.getSquaredDistance(pos) > chainReactionRadius * chainReactionRadius) continue;
-
+        iterateThroughBlocks(center, chainReactionRadius, pos -> {
             BlockState state = world.getBlockState(pos);
-            if (state.isAir()) continue;
+            if (state.isAir()) return;
 
-            // Check if this block is a TNT block (vanilla or custom).
+            // Check if this block is a TNT block (vanilla or custom) and remove and update neighbors.
             if (state.getBlock() instanceof TntBlock) {
-                // Remove the block and update neighbors.
                 world.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
 
                 // For custom TNT blocks, use their priming logic.
@@ -89,9 +76,52 @@ public class Kaboom {
                     TntEntity vanillaTnt = new TntEntity(world, pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, null);
                     ExplosionUtil.primeChainReactionTntEntity(world, pos, vanillaTnt);
                 }
-
             }
+        });
+    }
+
+    public static void iterateThroughBlocks(Vec3d center, int radius, Consumer<BlockPos> action) {
+        BlockPos origin = BlockPos.ofFloored(center);
+        for (BlockPos pos : BlockPos.iterate(
+                origin.add(-radius, -radius, -radius),
+                origin.add(radius, radius, radius))) {
+            // Only process blocks within the specified radius.
+            if (origin.getSquaredDistance(pos) > radius * radius) continue;
+            action.accept(pos);
         }
+    }
+
+    public static void iterateThroughBlocksGradually(ServerWorld world, Vec3d center, int radius,
+                                                      Consumer<BlockPos> action, Runnable onComplete, int blocksPerTick) {
+        BlockPos origin = BlockPos.ofFloored(center);
+        List<BlockPos> positions = new ArrayList<>();
+
+        // Collect all block positions within the sphere.
+        for (BlockPos pos : BlockPos.iterate(
+                origin.add(-radius, -radius, -radius),
+                origin.add(radius, radius, radius))) {
+            if (origin.getSquaredDistance(pos) > radius * radius) continue;
+            positions.add(pos.toImmutable());
+        }
+
+        // Process the positions gradually.
+        processPositionsGradually(world, positions, action, onComplete, blocksPerTick);
+    }
+
+    public static void processPositionsGradually(ServerWorld world, List<BlockPos> positions,
+                                                 Consumer<BlockPos> action,
+                                                 Runnable onComplete, int blocksPerTick) {
+        if (positions.isEmpty()) {
+            onComplete.run();
+            return;
+        }
+        int count = Math.min(blocksPerTick, positions.size());
+        for (int i = 0; i < count; i++) {
+            BlockPos pos = positions.removeFirst();
+            action.accept(pos);
+        }
+        world.getServer().execute(() ->
+                processPositionsGradually(world, positions, action, onComplete, blocksPerTick));
     }
 
     /**

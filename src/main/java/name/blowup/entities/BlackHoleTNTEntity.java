@@ -8,9 +8,9 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-public class NukeEntity extends CustomTNTEntity {
+public class BlackHoleTNTEntity extends CustomTNTEntity {
 
-    public NukeEntity(EntityType<? extends CustomTNTEntity> type, World world) {
+    public BlackHoleTNTEntity(EntityType<? extends CustomTNTEntity> type, World world) {
         super(type, world);
     }
 
@@ -23,7 +23,7 @@ public class NukeEntity extends CustomTNTEntity {
      */
     @Override
     protected void explode(ServerWorld world, Vec3d center) {
-        ExplosionUtil.doNukeExplosion(world, center);
+        ExplosionUtil.doBlackHoleExplosion(world, center);
     }
 
     /**
@@ -34,6 +34,6 @@ public class NukeEntity extends CustomTNTEntity {
      */
     @Override
     public BlockState getBlockState() {
-        return ModBlocks.NUKE.getDefaultState();
+        return ModBlocks.BLACK_HOLE_TNT.getDefaultState();
     }
 }

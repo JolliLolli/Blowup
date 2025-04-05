@@ -1,6 +1,6 @@
 package name.blowup.blocks;
 
-import name.blowup.ExplosionUtil;
+import name.blowup.utils.ExplosionUtil;
 import name.blowup.entities.CustomTNTEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.TntBlock;
@@ -13,7 +13,6 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.explosion.Explosion;
 import org.jetbrains.annotations.Nullable;
@@ -24,9 +23,6 @@ public abstract class CustomTNTBlock extends TntBlock {
     public CustomTNTBlock(Settings settings) {
         super(settings);
     }
-
-    // Subclasses will implement their custom explosion behavior.
-    public abstract void explode(ServerWorld world, Vec3d center);
 
     @Override
     protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {

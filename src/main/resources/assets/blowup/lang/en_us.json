@@ -1,7 +1,8 @@
 {
   "item.blowup.big_sword": "Big Sword",
   "item.blowup.end_dust": "End Dust",
-  "item.blowup.nuke": "Nickel Nuke",
+  "item.blowup.nuke": "Nuke",
+  "item.blowup.black_hole_tnt": "Black Hole TNT",
   "item.blowup.compressed_cobblestone": "Compressed Cobblestone",
   "itemGroup.Blowup": "Blowup"
 }

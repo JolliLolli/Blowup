@@ -1,6 +1,6 @@
 package name.blowup.item;
 
-import name.blowup.Kaboom;
+import name.blowup.utils.Kaboom;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
@@ -38,7 +38,7 @@ public class BigSwordItem extends SwordItem {
 
             // Explode
             Kaboom.triggerChainReaction((ServerWorld) world, target.getPos(), 3);
-            Kaboom.destroyAndFlingBlocks((ServerWorld) world, target.getPos(), 3, 3, 0.8, 0.7, 0.0);
+            Kaboom.destroyAndFlingBlocks((ServerWorld) world, target.getPos(), 3, 3, 0.8, 0.7, 0.6);
         }
         return result;
     }

@@ -1,6 +1,9 @@
-package name.blowup;
+package name.blowup.utils;
 
+import name.blowup.effects.BlackHoleEffect;
+import name.blowup.entities.BlackHoleEntity;
 import name.blowup.entities.CustomTNTEntity;
+import name.blowup.entities.ModEntities;
 import net.minecraft.entity.TntEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
@@ -11,6 +14,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class ExplosionUtil {
+
     public static void playStandardExplosionEffects(ServerWorld world, Vec3d center) {
         world.playSound(null, center.x, center.y, center.z,
                 SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS,
@@ -57,5 +61,15 @@ public class ExplosionUtil {
     public static void doNukeExplosion(ServerWorld world, Vec3d center) {
         flingExplosion(world, center, 15, 10, 3.0, 0.3, 0.5);
         playStandardExplosionEffects(world, center);
+    }
+
+    public static void doBlackHoleExplosion(ServerWorld world, Vec3d center) {
+        BlackHoleEffect.suckBlocksGradually(world, center, 25);
+        playStandardExplosionEffects(world, center);
+        world.getServer().execute(() -> {
+            BlackHoleEntity blackHole = new BlackHoleEntity(ModEntities.BLACK_HOLE_ENTITY, world);
+            blackHole.refreshPositionAndAngles(center.x, center.y, center.z, 0, 0);
+            world.spawnEntity(blackHole);
+        });
     }
 }
