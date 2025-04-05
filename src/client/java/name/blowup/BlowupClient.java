@@ -4,6 +4,7 @@ import name.blowup.entities.ModEntities;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.entity.TntEntityRenderer;
+import net.minecraft.client.render.entity.FallingBlockEntityRenderer;
 import name.blowup.client.renderer.BlackHoleRenderer;
 
 public class BlowupClient implements ClientModInitializer {
@@ -14,6 +15,9 @@ public class BlowupClient implements ClientModInitializer {
 		EntityRendererRegistry.register(ModEntities.NUKE_ENTITY, TntEntityRenderer::new);
 		EntityRendererRegistry.register(ModEntities.BLACK_HOLE_TNT_ENTITY, TntEntityRenderer::new);
 		EntityRendererRegistry.register(ModEntities.BLACK_HOLE_ENTITY, BlackHoleRenderer::new);
-
+		EntityRendererRegistry.register(
+				ModEntities.BLACK_HOLE_FALLING_BLOCK_ENTITY,
+				context -> new FallingBlockEntityRenderer(context)
+		);
 	}
 }

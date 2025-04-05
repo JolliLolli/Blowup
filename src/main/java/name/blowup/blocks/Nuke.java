@@ -6,6 +6,11 @@ import name.blowup.entities.CustomTNTEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+/**
+ * Represents a custom TNT block that creates a Nuke Entity when detonated.
+ * It makes a big boom and flings blocks everywhere.
+ * This class extends the CustomTNTBlock class to provide specific behavior for the nuke TNT.
+ */
 public class Nuke extends CustomTNTBlock {
 
     public Nuke(Settings settings) {

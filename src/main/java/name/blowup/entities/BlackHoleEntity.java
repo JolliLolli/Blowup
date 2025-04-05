@@ -26,6 +26,8 @@ import java.util.Random;
  * It handles its own lifecycle (growing, holding, and shrinking) and delegates
  * the heavy lifting of block absorption to BlackHoleUtils. Customize parameters such
  * as scale and timings in the tick() method.
+ *
+ * It doesn't have an explode() method as it doesn't explode like TNT.
  */
 public class BlackHoleEntity extends Entity {
 
@@ -41,7 +43,8 @@ public class BlackHoleEntity extends Entity {
     }
 
     /**
-     * Constructor for creating a black hole entity at a specific position.
+     * Every entity can have a tick() method that is called every tick.
+     * This updates the entity's state, including its size and what is absorbed.
      * You can change the scale values and timing constants for different effects.
      */
     @Override
@@ -53,7 +56,7 @@ public class BlackHoleEntity extends Entity {
         int growDuration = 40;     // ticks 0-39: growth
         int holdDuration = 140;    // ticks 40-179: hold full size
         int shrinkDuration = 20;   // ticks 180-199: shrink
-        float maxScale = 5.0f;
+        float maxScale = 10.0f;
 
         // Update the age of the entity
         if (this.age < growDuration) {
@@ -68,6 +71,10 @@ public class BlackHoleEntity extends Entity {
             this.scale = smoothstep(maxScale, 0.0f, progress);
         } else {
             this.discard();
+        }
+
+        if(this.age == 180) {
+            System.out.println("Black hole is shrinking so we're at tick 180");
         }
 
         // Start the absorption effect at tick 20 and end it at tick 180
@@ -90,8 +97,8 @@ public class BlackHoleEntity extends Entity {
                 absorptionPositions,
                 diskNormal,
                 5,      // blocks per tick
-                0.1,    // inward speed
-                0.1     // swirl speed
+                1,    // inward speed
+                1     // swirl speed
             );
         }
     }
@@ -102,11 +109,13 @@ public class BlackHoleEntity extends Entity {
         return from + (to - from) * t;
     }
 
+    // Black hole itself can't be blown up
     @Override
     public boolean isImmuneToExplosion(Explosion explosion) {
         return true;
     }
 
+    // Creates a spawn packet for the entity
     @Override
     public Packet<ClientPlayPacketListener> createSpawnPacket(EntityTrackerEntry entry) {
         System.out.println("Creating spawn packet for BlackHoleEntity");
@@ -118,7 +127,7 @@ public class BlackHoleEntity extends Entity {
         return this.scale;
     }
 
-
+    // Necessary methods for an entity
     @Override
     protected void initDataTracker(DataTracker.Builder builder) {
 

@@ -2,6 +2,7 @@ package name.blowup.blocks;
 
 import name.blowup.utils.ExplosionUtil;
 import name.blowup.entities.CustomTNTEntity;
+import name.blowup.utils.Kaboom;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.TntBlock;
 import net.minecraft.entity.LivingEntity;
@@ -9,6 +10,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -58,21 +61,36 @@ public abstract class CustomTNTBlock extends TntBlock {
         }
     }
 
+    /**
+     * This method is called when the TNT block is destroyed by an explosion.
+     * It primes a chain reaction of TNT entities.
+     *
+     * @param world The world where the explosion occurred.
+     * @param pos The position of the TNT block.
+     * @param igniter The entity that caused the explosion, if any.
+     */
     public void primeChainReactionTntEntity(ServerWorld world, BlockPos pos, @Nullable LivingEntity igniter) {
-        // Create your custom TNT entity.
         CustomTNTEntity entity = createCustomTNTEntity(world, pos);
-        // Delegate to the generic helper.
         ExplosionUtil.primeChainReactionTntEntity(world, pos, entity);
     }
 
-    // Generic method to prime a TNT entity.
+    /**
+     * This method is called when the TNT block is ignited by a player or item.
+     * It primes the TNT entity for explosion.
+     *
+     * @param world The world where the TNT block is located.
+     * @param pos The position of the TNT block.
+     * @param igniter The entity that ignited the TNT, if any.
+     */
     public void primeTnt(World world, BlockPos pos, @Nullable LivingEntity igniter) {
         if (!world.isClient()) {
             CustomTNTEntity entity = createCustomTNTEntity(world, pos);
-            ExplosionUtil.primeTnt(world, pos, entity);
+            Kaboom.giveTntHop(entity);
+            world.spawnEntity(entity);
+            world.playSound(null, pos, SoundEvents.ENTITY_TNT_PRIMED, SoundCategory.BLOCKS, 3f, 1f);
         }
     }
 
-    // Subclasses provide their own entity creation, allowing for different entity types.
+    // Forces subclasses to implement this method
     protected abstract CustomTNTEntity createCustomTNTEntity(World world, BlockPos pos);
 }

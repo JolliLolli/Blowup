@@ -6,6 +6,10 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
+/**
+ * Represents a custom TNT entity that can be used to create various types of explosions.
+ * This class extends the TntEntity class to provide specific behavior for custom TNT entities.
+ */
 public abstract class CustomTNTEntity extends TntEntity {
 
     public CustomTNTEntity(EntityType<? extends CustomTNTEntity> type, World world) {

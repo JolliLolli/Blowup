@@ -1,7 +1,6 @@
 package name.blowup.utils;
 
 import name.blowup.entities.BlackHoleEntity;
-import name.blowup.entities.CustomTNTEntity;
 import name.blowup.entities.ModEntities;
 import net.minecraft.entity.TntEntity;
 import net.minecraft.particle.ParticleTypes;
@@ -10,7 +9,6 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.World;
 
 public class ExplosionUtil {
 
@@ -20,14 +18,6 @@ public class ExplosionUtil {
                 2.0f, 0.8f + world.getRandom().nextFloat() * 0.4f);
         world.spawnParticles(ParticleTypes.EXPLOSION, center.x, center.y, center.z,
                 10, 0.5, 0.5, 0.5, 0.01);
-    }
-
-    public static void primeTnt(World world, BlockPos pos, CustomTNTEntity tntEntity) {
-        if (!world.isClient()) {
-            Kaboom.giveTntHop(tntEntity);
-            world.spawnEntity(tntEntity);
-            world.playSound(null, pos, SoundEvents.ENTITY_TNT_PRIMED, SoundCategory.BLOCKS, 3f, 1f);
-        }
     }
 
     /**
@@ -50,7 +40,8 @@ public class ExplosionUtil {
         world.playSound(null, pos, SoundEvents.ENTITY_TNT_PRIMED, SoundCategory.BLOCKS, 3f, 1f);
     }
 
-    // This method makes the explosion fling blocks in a sphere.
+    // This method makes triggers nearby tnt and destroys and fling blocks in a sphere
+    // without any particles.
     public static void flingExplosion(ServerWorld world, Vec3d center, int flingRadius, int destructionRadius, double maxY, double decay, double flingChance) {
         // Primes other tnt then flings blocks.
         Kaboom.triggerChainReaction(world, center, destructionRadius);

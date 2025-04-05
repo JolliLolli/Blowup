@@ -10,10 +10,12 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Consumer;
 
+/**
+ * Utility class for handling explosions and block destruction in Minecraft.
+ * This class provides methods to fling blocks, trigger chain reactions, and calculate velocities.
+ */
 public class Kaboom {
     private static final java.util.Random random = new java.util.Random();
 
@@ -89,39 +91,6 @@ public class Kaboom {
             if (origin.getSquaredDistance(pos) > radius * radius) continue;
             action.accept(pos);
         }
-    }
-
-    public static void iterateThroughBlocksGradually(ServerWorld world, Vec3d center, int radius,
-                                                      Consumer<BlockPos> action, Runnable onComplete, int blocksPerTick) {
-        BlockPos origin = BlockPos.ofFloored(center);
-        List<BlockPos> positions = new ArrayList<>();
-
-        // Collect all block positions within the sphere.
-        for (BlockPos pos : BlockPos.iterate(
-                origin.add(-radius, -radius, -radius),
-                origin.add(radius, radius, radius))) {
-            if (origin.getSquaredDistance(pos) > radius * radius) continue;
-            positions.add(pos.toImmutable());
-        }
-
-        // Process the positions gradually.
-        processPositionsGradually(world, positions, action, onComplete, blocksPerTick);
-    }
-
-    public static void processPositionsGradually(ServerWorld world, List<BlockPos> positions,
-                                                 Consumer<BlockPos> action,
-                                                 Runnable onComplete, int blocksPerTick) {
-        if (positions.isEmpty()) {
-            onComplete.run();
-            return;
-        }
-        int count = Math.min(blocksPerTick, positions.size());
-        for (int i = 0; i < count; i++) {
-            BlockPos pos = positions.removeFirst();
-            action.accept(pos);
-        }
-        world.getServer().execute(() ->
-                processPositionsGradually(world, positions, action, onComplete, blocksPerTick));
     }
 
     /**

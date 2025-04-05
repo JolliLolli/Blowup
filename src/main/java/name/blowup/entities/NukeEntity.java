@@ -8,6 +8,10 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
+/**
+ * Represents a custom TNT entity that creates a big explosion through doNukeExplosion().
+ * This class extends the CustomTNTEntity class to provide specific behavior for the nuke TNT.
+ */
 public class NukeEntity extends CustomTNTEntity {
 
     public NukeEntity(EntityType<? extends CustomTNTEntity> type, World world) {

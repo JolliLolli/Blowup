@@ -9,11 +9,11 @@ import net.minecraft.client.render.entity.state.EntityRenderState;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
 
-
 // Made with Blockbench 4.12.4
 // Exported for Minecraft version 1.17+ for Yarn
 // Paste this class into your mod and generate all required imports
 @Environment(EnvType.CLIENT)
+@SuppressWarnings({"unused", "FieldCanBeLocal"})
 public class ModelBlackHole extends EntityModel<EntityRenderState> {
 	private final ModelPart bone;
 	private final ModelPart hexadecagon2;
@@ -162,6 +162,7 @@ public class ModelBlackHole extends EntityModel<EntityRenderState> {
 		ModelPartData hexadecagon_r32 = hexadecagon7.addChild("hexadecagon_r32", ModelPartBuilder.create().uv(24, 4).cuboid(8.0F, -0.2984F, -1.5F, 1.0F, 0.5967F, 3.0F, new Dilation(0.0F)), ModelTransform.of(-8.5F, 0.0F, 0.0F, 0.7854F, 0.0F, 0.0F));
 		return TexturedModelData.of(modelData, 48, 48);
 	}
+
 	/**
 	 * Create a ModelPart directly from the above TexturedModelData.
 	 * This bypasses the model-layer approach if it's unavailable.
