@@ -53,7 +53,6 @@ public class BlackHoleUtils {
                 positions.add(pos.toImmutable());
             }
         });
-        System.out.println("Absorption positions collected: " + positions.size());
         return positions;
     }
 

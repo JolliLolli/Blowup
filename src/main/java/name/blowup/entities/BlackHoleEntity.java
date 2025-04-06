@@ -28,15 +28,14 @@ import java.util.Random;
  * It doesn't have an explode() method as it doesn't explode like TNT.
  */
 public class BlackHoleEntity extends Entity {
-
     private float scale;
     private List<BlockPos> absorptionPositions = null;
     private Vec3d diskNormal = null;
     private final World world = getWorld();
+    private int initialAbsorptionCount = 0;
 
     public BlackHoleEntity(EntityType<?> type, World world) {
         super(type, world);
-        System.out.println("Spawning black hole at");
         this.scale = 0.0F; // Initial scale
     }
 
@@ -71,32 +70,34 @@ public class BlackHoleEntity extends Entity {
             this.discard();
         }
 
-        if(this.age == 180) {
-            System.out.println("Black hole is shrinking so we're at tick 180");
+        if (!world.isClient && this.age == 20) {
+            int suckRadius = 25;
+            absorptionPositions = BlackHoleUtils.collectAbsorptionPositions((ServerWorld) world, this.getPos(), suckRadius);
+            initialAbsorptionCount = absorptionPositions.size();
+            Random random = new Random(world.random.nextInt());
+            diskNormal = BlackHoleUtils.randomUnitVector(random);
         }
+
 
         // Start the absorption effect at tick 20 and end it at tick 180
         // Uses collectAbsorptionPositions to gather blocks
         // and processAbsorptionBlocks to handle them.
         if (!world.isClient && this.age >= 20 && this.age < 180) {
-            if (absorptionPositions == null) {
-                int suckRadius = 25;
-                absorptionPositions = BlackHoleUtils.collectAbsorptionPositions((ServerWorld) world, this.getPos(), suckRadius);
-                // Shuffle positions using a seeded Random instance.
-                Random random = new Random(world.random.nextInt());
-                //Collections.shuffle(absorptionPositions, random);
-                diskNormal = BlackHoleUtils.randomUnitVector(random);
-            }
+            // Ensures even tiny batches get visualized
+            int totalAbsorptionTicks = 160;  // e.g., from tick 20 to tick 180
+            int blocksPerTick = (int) Math.ceil((double) initialAbsorptionCount / totalAbsorptionTicks);
 
-            // Safely process a few blocks PER TICK — no recursion!
+//            int blocksPerTick = Math.max(absorptionPositions.size() / (totalLife - shrinkDuration - growDuration / 2), 1);
+
+            // Let it rip
             BlackHoleUtils.processAbsorptionBatch(
                 (ServerWorld) world,
                 getPos(),
                 absorptionPositions,
                 diskNormal,
-                12,      // blocks per tick
-                1,    // inward speed
-                1     // swirl speed
+                blocksPerTick,      // blocks per tick
+                1.5,    // inward speed
+                1.5     // swirl speed
             );
         }
     }
@@ -116,7 +117,6 @@ public class BlackHoleEntity extends Entity {
     // Creates a spawn packet for the entity
     @Override
     public Packet<ClientPlayPacketListener> createSpawnPacket(EntityTrackerEntry entry) {
-        System.out.println("Creating spawn packet for BlackHoleEntity");
         return new EntitySpawnS2CPacket(this, entry);
     }
 

@@ -1,5 +1,7 @@
 package name.blowup.client.renderer;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.render.Frustum;
@@ -16,26 +18,28 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import org.joml.Quaternionf;
+import org.joml.Vector3f;
 
+@Environment(EnvType.CLIENT)
 public class BlackHoleFallingBlockRenderer extends FallingBlockEntityRenderer {
-
     private final BlockRenderManager blockRenderManager;
 
     public BlackHoleFallingBlockRenderer(EntityRendererFactory.Context context) {
         super(context);
         // Get the block render manager from context
         this.blockRenderManager = context.getBlockRenderManager();
-        System.out.println("BlackHoleFallingBlockRenderer instantiated");
     }
 
     @Override
     public boolean shouldRender(FallingBlockEntity entity, Frustum frustum, double x, double y, double z) {
         BlockState entityState = entity.getBlockState();
         BlockState worldState = entity.getWorld().getBlockState(entity.getFallingBlockPos());
-        boolean result = entityState != worldState || !entity.getVelocity().equals(Vec3d.ZERO);
-        System.out.println("Client render check — Entity: " + entityState + ", World: " + worldState + "Should render: " + result);
-        // Only cull if it's exactly the same *and* the entity isn't moving
-        return result;
+        return entityState != worldState || !entity.getVelocity().equals(Vec3d.ZERO);
+    }
+
+    @Override
+    public FallingBlockEntityRenderState createRenderState() {
+        return new BlackHoleFallingBlockRenderState();
     }
 
     @Override
@@ -48,27 +52,41 @@ public class BlackHoleFallingBlockRenderer extends FallingBlockEntityRenderer {
         state.blockState = entity.getBlockState();
         state.biome = entity.getWorld().getBiome(floored);
         state.world = entity.getWorld();
+
+        if (state instanceof BlackHoleFallingBlockRenderState bhState) {
+            bhState.uuid = entity.getUuid(); // store entity's uuid
+        }
     }
-
-
 
     @Override
     public void render(FallingBlockEntityRenderState state, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
+        if (!(state instanceof BlackHoleFallingBlockRenderState bhState)) {
+            return;
+        }
         BlockState blockState = state.blockState;
-        System.out.println("Rendering block: " + blockState);
         if (blockState.getRenderType() == BlockRenderType.MODEL) {
             matrices.push();
             // Center the block model on the entity's position
             matrices.translate(-0.5, 0.0, -0.5);
 
-            // Calculate an angle that changes over time (in degrees)
-            float angleDegrees = (System.currentTimeMillis() % 36000L) / 100.0F;
-            // Convert to radians since rotateAxis() expects radians
-            float angleRadians = (float) Math.toRadians(angleDegrees);
-            // Create a quaternion that represents a rotation around every axis
-            Quaternionf rotation = new Quaternionf().rotateAxis(angleRadians, 1.0F, 1.0F, 1.0F);
-            // Multiply the current matrix with the rotation quaternion
+            // Use the entity's uuid from the render state to generate a spin seed.
+            long seed = bhState.uuid.getLeastSignificantBits();
+            Random random = Random.create(seed);
+            Vector3f axis = new Vector3f(
+                    random.nextFloat() * 2 - 1,
+                    random.nextFloat() * 2 - 1,
+                    random.nextFloat() * 2 - 1
+            ).normalize();
+            float offset = random.nextFloat() * 360.0f;
+
+            // Rotation that progresses over time, with entity-specific offset
+            float angle = (System.currentTimeMillis() % 36000L + offset) / 10.0F;
+            Quaternionf rotation = new Quaternionf().rotateAxis(
+                    (float) Math.toRadians(angle),
+                    axis.x(), axis.y(), axis.z()
+            );
             matrices.multiply(rotation);
+
 
             // Render the block model using the vanilla BlockRenderManager.
             this.blockRenderManager.getModelRenderer().render(
@@ -84,10 +102,6 @@ public class BlackHoleFallingBlockRenderer extends FallingBlockEntityRenderer {
                     OverlayTexture.DEFAULT_UV
             );
             matrices.pop();
-            System.out.println("Block rendered with rotation: " + angleDegrees);
         }
-        System.out.println("Block state to be supered: " + blockState);
-        // Call super to complete any additional vanilla rendering steps
-        super.render(state, matrices, vertexConsumers, light);
     }
 }

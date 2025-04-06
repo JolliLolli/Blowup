@@ -8,7 +8,6 @@ import net.minecraft.entity.FallingBlockEntity;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
@@ -18,6 +17,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import name.blowup.utils.BlackHoleUtils;
 import net.minecraft.world.World;
+import org.joml.Vector3f;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -26,22 +26,22 @@ import java.util.UUID;
 /**
  * Falling block entity pulled by a black hole.
  */
-public class BlackHoleFallingBlockEntity extends FallingBlockEntity {
-
-    // We'll remove 'final' so these can be set differently by the minimal vs. advanced constructors.
+public class BlackHoleFallingBlockEntity extends CustomFallingBlockEntity {
     private Vec3d blackHoleCenter;
     private Vec3d diskNormal;
     private double inwardSpeed;
     private double swirlSpeed;
     private BlockState storedState;
+    private float spinOffset;
+    private Vector3f spinAxis;
     private static final TrackedData<Integer> BLOCK_STATE = DataTracker.registerData(BlackHoleFallingBlockEntity.class, TrackedDataHandlerRegistry.INTEGER);
-
-    public static final Set<UUID> DEBUG_UUIDS = new HashSet<>();
 
     // Constructor for the entity type registration.
     public BlackHoleFallingBlockEntity(EntityType<? extends FallingBlockEntity> type, World world) {
         super(type, world);
         // Start tracking the block state; default to air.
+        this.obeyGravity = false;
+        this.enableCollision = false;
         this.getDataTracker().set(BLOCK_STATE, Block.getRawIdFromState(Blocks.AIR.getDefaultState()));
         this.storedState = Blocks.AIR.getDefaultState();
         this.blackHoleCenter = Vec3d.ZERO;
@@ -63,12 +63,18 @@ public class BlackHoleFallingBlockEntity extends FallingBlockEntity {
         this.inwardSpeed = inwardSpeed;
         this.swirlSpeed = swirlSpeed;
         this.storedState = state;
+        this.spinOffset = this.random.nextFloat() * (float)(2 * Math.PI); // radians
+
+        this.spinAxis = new Vector3f(
+                random.nextFloat() * 2 - 1,
+                random.nextFloat() * 2 - 1,
+                random.nextFloat() * 2 - 1
+        ).normalize();
+
         // Update the tracked data with the correct state.
         this.dataTracker.set(BLOCK_STATE, Block.getRawIdFromState(state));
 
-        if (random.nextDouble() < 0.005) {
-            DEBUG_UUIDS.add(this.getUuid());
-        }
+        //DEBUG_UUIDS.add(this.getUuid());
 
         this.setPosition(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
         this.setVelocity(Vec3d.ZERO);
@@ -85,6 +91,10 @@ public class BlackHoleFallingBlockEntity extends FallingBlockEntity {
         builder.add(BLOCK_STATE, Block.getRawIdFromState(Blocks.AIR.getDefaultState()));
     }
 
+    /**
+     * Override tick() to implement custom swirling behavior for the black hole effect.
+     * We deliberately do not call super.tick() here because we don't want vanilla landing/collision logic.
+     */
     @Override
     public void tick() {
         // Run custom black-hole swirl logic on the server.
@@ -99,16 +109,7 @@ public class BlackHoleFallingBlockEntity extends FallingBlockEntity {
 
             // Check if we've hit the event horizon (1 block radius)
             if (currentPos.squaredDistanceTo(blackHoleCenter) < 3.0) {
-                if (DEBUG_UUIDS.contains(this.getUuid())) {
-                    System.out.println("Destroying entity " + this.getUuid() + " at pos: " + currentPos);
-                }
                 this.discard(); // Entity is consumed by the black hole
-            }
-
-            // Debug output: log only if this entity's UUID is in our debug set.
-            if (DEBUG_UUIDS.contains(this.getUuid())) {
-                System.out.println("Debug Entity " + this.getUuid() + " at pos: "
-                        + currentPos + " with velocity: " + newVelocity);
             }
         }
 
@@ -129,9 +130,7 @@ public class BlackHoleFallingBlockEntity extends FallingBlockEntity {
     public BlockState getBlockState() {
         // Use the data tracker to determine what block state to render.
         int rawState = this.dataTracker.get(BLOCK_STATE);
-        BlockState trackedState = Block.getStateFromRawId(rawState);
-        System.out.println("Block state rendering as: " + trackedState);
-        return trackedState;
+        return Block.getStateFromRawId(rawState);
     }
 
     @Override
@@ -144,27 +143,4 @@ public class BlackHoleFallingBlockEntity extends FallingBlockEntity {
         super.onSpawnPacket(packet);
         this.storedState = Block.getStateFromRawId(packet.getEntityData());
     }
-
-    @Override
-    protected void writeCustomDataToNbt(NbtCompound nbt) {
-        super.writeCustomDataToNbt(nbt);
-        nbt.putInt("BlockState", Block.getRawIdFromState(storedState));
-        nbt.putDouble("CenterX", blackHoleCenter.x);
-        nbt.putDouble("CenterY", blackHoleCenter.y);
-        nbt.putDouble("CenterZ", blackHoleCenter.z);
-        System.out.println("Writing NBT: " + nbt);
-    }
-
-    @Override
-    protected void readCustomDataFromNbt(NbtCompound nbt) {
-        super.readCustomDataFromNbt(nbt);
-        storedState = Block.getStateFromRawId(nbt.getInt("BlockState"));
-        blackHoleCenter = new Vec3d(
-                nbt.getDouble("CenterX"),
-                nbt.getDouble("CenterY"),
-                nbt.getDouble("CenterZ")
-        );
-        System.out.println("Reading NBT: " + nbt);
-    }
-
 }
