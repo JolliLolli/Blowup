@@ -22,7 +22,6 @@ public abstract class CustomFallingBlockEntity extends FallingBlockEntity {
 
     @Override
     public void tick() {
-        // --- Common Tick Logic ---
         // Apply gravity if enabled (vanilla gravity is ~0.04 per tick)
         if (obeyGravity) {
             Vec3d currentVelocity = this.getVelocity();

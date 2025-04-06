@@ -87,7 +87,6 @@ public class BlackHoleFallingBlockRenderer extends FallingBlockEntityRenderer {
             );
             matrices.multiply(rotation);
 
-
             // Render the block model using the vanilla BlockRenderManager.
             this.blockRenderManager.getModelRenderer().render(
                     state,

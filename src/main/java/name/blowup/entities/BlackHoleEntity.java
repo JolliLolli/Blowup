@@ -53,7 +53,7 @@ public class BlackHoleEntity extends Entity {
         int growDuration = 40;     // ticks 0-39: growth
         int holdDuration = 140;    // ticks 40-179: hold full size
         int shrinkDuration = 20;   // ticks 180-199: shrink
-        float maxScale = 30.0f;    // 10f = 1 block radius
+        float maxScale = 35.0f;    // 10f = 1 block radius
 
         // Update the age of the entity
         if (this.age < growDuration) {
@@ -69,35 +69,29 @@ public class BlackHoleEntity extends Entity {
         } else {
             this.discard();
         }
-
-        if (!world.isClient && this.age == 20) {
-            int suckRadius = 25;
+        // Start the absorption effect at tick 20 and end it at tick 170
+        // Uses collectAbsorptionPositions to gather blocks
+        if (!world.isClient && this.age == growDuration / 2) {
+            int suckRadius = 30;
             absorptionPositions = BlackHoleUtils.collectAbsorptionPositions((ServerWorld) world, this.getPos(), suckRadius);
             initialAbsorptionCount = absorptionPositions.size();
             Random random = new Random(world.random.nextInt());
             diskNormal = BlackHoleUtils.randomUnitVector(random);
         }
 
-
-        // Start the absorption effect at tick 20 and end it at tick 180
-        // Uses collectAbsorptionPositions to gather blocks
         // and processAbsorptionBlocks to handle them.
-        if (!world.isClient && this.age >= 20 && this.age < 180) {
-            // Ensures even tiny batches get visualized
-            int totalAbsorptionTicks = 160;  // e.g., from tick 20 to tick 180
+        if (!world.isClient && this.age >= 20 && this.age < 170) {
+            int totalAbsorptionTicks = 150;  // e.g., from tick 20 to tick 170
             int blocksPerTick = (int) Math.ceil((double) initialAbsorptionCount / totalAbsorptionTicks);
-
-//            int blocksPerTick = Math.max(absorptionPositions.size() / (totalLife - shrinkDuration - growDuration / 2), 1);
-
             // Let it rip
             BlackHoleUtils.processAbsorptionBatch(
                 (ServerWorld) world,
                 getPos(),
                 absorptionPositions,
                 diskNormal,
-                blocksPerTick,      // blocks per tick
-                1.5,    // inward speed
-                1.5     // swirl speed
+                blocksPerTick,  // blocks per tick
+                1.3,            // inward speed
+                1.2             // swirl speed
             );
         }
     }

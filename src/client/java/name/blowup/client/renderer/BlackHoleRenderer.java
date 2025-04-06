@@ -14,7 +14,6 @@ import net.minecraft.client.util.math.MatrixStack;
 
 @Environment(EnvType.CLIENT)
 public class BlackHoleRenderer extends EntityRenderer<BlackHoleEntity, BlackHoleEntityRenderState> {
-
     private static final Identifier TEXTURE = Identifier.of("blowup:textures/block/black.png");
     private final ModelBlackHole model;
 
@@ -66,7 +65,7 @@ public class BlackHoleRenderer extends EntityRenderer<BlackHoleEntity, BlackHole
         // Pop transform to reset
         matrices.pop();
 
-        // Optionally, call super.render(state, ...) to let Minecraft render labels and leashes.
+        // Let Minecraft render labels and leashes.
         super.render(state, matrices, vertexConsumers, light);
     }
 
@@ -74,5 +73,4 @@ public class BlackHoleRenderer extends EntityRenderer<BlackHoleEntity, BlackHole
     public boolean shouldRender(BlackHoleEntity entity, Frustum frustum, double x, double y, double z) {
         return true; // Always render, even if off-screen
     }
-
 }

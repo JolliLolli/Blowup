@@ -17,11 +17,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import name.blowup.utils.BlackHoleUtils;
 import net.minecraft.world.World;
-import org.joml.Vector3f;
-
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
 
 /**
  * Falling block entity pulled by a black hole.
@@ -31,9 +26,6 @@ public class BlackHoleFallingBlockEntity extends CustomFallingBlockEntity {
     private Vec3d diskNormal;
     private double inwardSpeed;
     private double swirlSpeed;
-    private BlockState storedState;
-    private float spinOffset;
-    private Vector3f spinAxis;
     private static final TrackedData<Integer> BLOCK_STATE = DataTracker.registerData(BlackHoleFallingBlockEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
     // Constructor for the entity type registration.
@@ -43,7 +35,6 @@ public class BlackHoleFallingBlockEntity extends CustomFallingBlockEntity {
         this.obeyGravity = false;
         this.enableCollision = false;
         this.getDataTracker().set(BLOCK_STATE, Block.getRawIdFromState(Blocks.AIR.getDefaultState()));
-        this.storedState = Blocks.AIR.getDefaultState();
         this.blackHoleCenter = Vec3d.ZERO;
         this.setNoGravity(true);
         this.noClip = true;
@@ -62,20 +53,7 @@ public class BlackHoleFallingBlockEntity extends CustomFallingBlockEntity {
         this.diskNormal = diskNormal;
         this.inwardSpeed = inwardSpeed;
         this.swirlSpeed = swirlSpeed;
-        this.storedState = state;
-        this.spinOffset = this.random.nextFloat() * (float)(2 * Math.PI); // radians
-
-        this.spinAxis = new Vector3f(
-                random.nextFloat() * 2 - 1,
-                random.nextFloat() * 2 - 1,
-                random.nextFloat() * 2 - 1
-        ).normalize();
-
-        // Update the tracked data with the correct state.
         this.dataTracker.set(BLOCK_STATE, Block.getRawIdFromState(state));
-
-        //DEBUG_UUIDS.add(this.getUuid());
-
         this.setPosition(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
         this.setVelocity(Vec3d.ZERO);
         this.prevX = this.getX();
@@ -102,13 +80,15 @@ public class BlackHoleFallingBlockEntity extends CustomFallingBlockEntity {
             Vec3d currentPos = this.getPos();
             // Calculate a new velocity vector using our swirling math.
             Vec3d newVelocity = BlackHoleUtils.calcSwirlVelocity(
-                blackHoleCenter, currentPos, diskNormal, inwardSpeed, swirlSpeed
+                    blackHoleCenter, currentPos, diskNormal,
+                    // Decrease speed as we approach the event horizon so blocks don't seemingly pass through.
+                    (currentPos.squaredDistanceTo(blackHoleCenter) < 5) ? inwardSpeed/1.5 : inwardSpeed,
+                    (currentPos.squaredDistanceTo(blackHoleCenter) < 5) ? swirlSpeed/1.5 : swirlSpeed
             );
 
             this.setVelocity(newVelocity);
-
             // Check if we've hit the event horizon (1 block radius)
-            if (currentPos.squaredDistanceTo(blackHoleCenter) < 3.0) {
+            if (currentPos.squaredDistanceTo(blackHoleCenter) < 2.8) {
                 this.discard(); // Entity is consumed by the black hole
             }
         }
@@ -141,6 +121,5 @@ public class BlackHoleFallingBlockEntity extends CustomFallingBlockEntity {
     @Override
     public void onSpawnPacket(EntitySpawnS2CPacket packet) {
         super.onSpawnPacket(packet);
-        this.storedState = Block.getStateFromRawId(packet.getEntityData());
     }
 }

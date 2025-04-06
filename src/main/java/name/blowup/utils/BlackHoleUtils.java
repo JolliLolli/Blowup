@@ -81,7 +81,6 @@ public class BlackHoleUtils {
             // Remove the block.
             world.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
             Vec3d blockCenter = Vec3d.ofCenter(pos);
-
             // Calculate the velocity using calcSwirlVelocity
             Vec3d velocity = calcSwirlVelocity(center, blockCenter, diskNormal, inwardSpeed, swirlSpeed);
 
