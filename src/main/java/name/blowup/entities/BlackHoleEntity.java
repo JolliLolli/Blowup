@@ -55,7 +55,7 @@ public class BlackHoleEntity extends Entity {
         int growDuration = 40;     // ticks 0-39: growth
         int holdDuration = 140;    // ticks 40-179: hold full size
         int shrinkDuration = 20;   // ticks 180-199: shrink
-        float maxScale = 10.0f;
+        float maxScale = 30.0f;
 
         // Update the age of the entity
         if (this.age < growDuration) {
@@ -85,7 +85,7 @@ public class BlackHoleEntity extends Entity {
                 absorptionPositions = BlackHoleUtils.collectAbsorptionPositions((ServerWorld) world, this.getPos(), suckRadius);
                 // Shuffle positions using a seeded Random instance.
                 Random random = new Random(world.random.nextInt());
-                Collections.shuffle(absorptionPositions, random);
+                //Collections.shuffle(absorptionPositions, random);
                 diskNormal = BlackHoleUtils.randomUnitVector(random);
             }
 
@@ -95,7 +95,7 @@ public class BlackHoleEntity extends Entity {
                 getPos(),
                 absorptionPositions,
                 diskNormal,
-                5,      // blocks per tick
+                12,      // blocks per tick
                 1,    // inward speed
                 1     // swirl speed
             );

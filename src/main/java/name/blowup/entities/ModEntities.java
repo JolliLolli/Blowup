@@ -49,12 +49,11 @@ public class ModEntities {
     public static final EntityType<BlackHoleFallingBlockEntity> BLACK_HOLE_FALLING_BLOCK_ENTITY = Registry.register(
             Registries.ENTITY_TYPE,
             Identifier.of("blowup", "black_hole_falling_block"),
-            FabricEntityTypeBuilder.<BlackHoleFallingBlockEntity>create(SpawnGroup.MISC, (type, world) ->
-                    // Provide default values; these will be overwritten by your spawn method
-                    new BlackHoleFallingBlockEntity((ServerWorld) world, BlockPos.ORIGIN, Blocks.AIR.getDefaultState(),
-                            Vec3d.ZERO, new Vec3d(0, 1, 0), 0.1, 0.1)
-            ).dimensions(EntityDimensions.fixed(1.0F, 1.0F)).build(RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of("blowup", "black_hole")))
+            EntityType.Builder.<BlackHoleFallingBlockEntity>create(BlackHoleFallingBlockEntity::new, SpawnGroup.MISC)
+                    .dimensions(1.0F, 1.0F)
+                    .build(RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of("blowup", "black_hole_falling_block")))
     );
+
 
 
     public static void register() {

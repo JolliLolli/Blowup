@@ -53,6 +53,7 @@ public class BlackHoleUtils {
                 positions.add(pos.toImmutable());
             }
         });
+        System.out.println("Absorption positions collected: " + positions.size());
         return positions;
     }
 
@@ -81,25 +82,16 @@ public class BlackHoleUtils {
             // Remove the block.
             world.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
             Vec3d blockCenter = Vec3d.ofCenter(pos);
-            Vec3d radial = center.subtract(blockCenter);
-            Vec3d inward = radial.normalize().multiply(inwardSpeed);
 
-            // Project the radial vector onto the disk plane.
-            Vec3d radialInPlane = radial.subtract(diskNormal.multiply(radial.dotProduct(diskNormal)));
-            if (radialInPlane.lengthSquared() < 1e-4) {
-                radialInPlane = diskNormal.crossProduct(new Vec3d(1, 0, 0));
-                if (radialInPlane.lengthSquared() < 1e-4) {
-                    radialInPlane = diskNormal.crossProduct(new Vec3d(0, 1, 0));
-                }
-            }
-            radialInPlane = radialInPlane.normalize();
-            Vec3d tangential = diskNormal.crossProduct(radialInPlane).normalize();
-            Vec3d swirl = tangential.multiply(swirlSpeed);
-            Vec3d velocity = inward.add(swirl);
+            // Calculate the velocity using calcSwirlVelocity
+            Vec3d velocity = calcSwirlVelocity(center, blockCenter, diskNormal, inwardSpeed, swirlSpeed);
 
-            BlackHoleFallingBlockEntity fb = BlackHoleFallingBlockEntity.spawnBlackHoleBlock(world, pos, state,
-                    center, diskNormal, inwardSpeed, swirlSpeed);
+            BlackHoleFallingBlockEntity fb = new BlackHoleFallingBlockEntity(
+                    world, // ServerWorld instance
+                    pos, state, center, diskNormal, inwardSpeed, swirlSpeed
+            );
             fb.setVelocity(velocity);
+            world.spawnEntity(fb);
         }
     }
 

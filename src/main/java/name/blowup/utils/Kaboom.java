@@ -10,6 +10,10 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.PriorityQueue;
 import java.util.function.Consumer;
 
 /**
@@ -84,14 +88,25 @@ public class Kaboom {
 
     public static void iterateThroughBlocks(Vec3d center, int radius, Consumer<BlockPos> action) {
         BlockPos origin = BlockPos.ofFloored(center);
+        List<BlockPos> positions = new ArrayList<>();
+
         for (BlockPos pos : BlockPos.iterate(
                 origin.add(-radius, -radius, -radius),
                 origin.add(radius, radius, radius))) {
-            // Only process blocks within the specified radius.
-            if (origin.getSquaredDistance(pos) > radius * radius) continue;
+
+            if (origin.getSquaredDistance(pos) <= radius * radius) {
+                positions.add(pos.toImmutable()); // Make sure we don't use mutables
+            }
+        }
+
+        // Sort positions by distance to center (i.e., center-outward iteration)
+        positions.sort(Comparator.comparingDouble(origin::getSquaredDistance));
+
+        for (BlockPos pos : positions) {
             action.accept(pos);
         }
     }
+
 
     /**
      * Calculates the velocity vector for a block based on its position relative to a center point.
