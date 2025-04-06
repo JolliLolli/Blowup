@@ -48,8 +48,6 @@ public class ModEntities {
                     .build(RegistryKey.of(RegistryKeys.ENTITY_TYPE, Identifier.of("blowup", "black_hole_falling_block")))
     );
 
-
-
     public static void register() {
         // This method exists solely to force the class to load and its static fields to initialize.
         System.out.println("ModEntities registered");

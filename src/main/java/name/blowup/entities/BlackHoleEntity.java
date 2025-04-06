@@ -54,19 +54,19 @@ public class BlackHoleEntity extends Entity {
         int growDuration = 40;     // ticks 0-39: growth
         int holdDuration = 140;    // ticks 40-179: hold full size
         int shrinkDuration = 20;   // ticks 180-199: shrink
-        float maxScale = 30.0f;
+        float maxScale = 30.0f;    // 10f = 1 block radius
 
         // Update the age of the entity
         if (this.age < growDuration) {
-            // Ease-in-out grow using a smoothstep curve
+            // Ease-in-out grow using a smoothStep curve
             float progress = (float) age / growDuration;
-            this.scale = smoothstep(0.0f, maxScale, progress);
+            this.scale = smoothStep(0.0f, maxScale, progress);
         } else if (this.age < growDuration + holdDuration) {
             this.scale = maxScale;
         } else if (this.age < totalLife) {
             // Ease-out shrink
             float progress = (float)(this.age - growDuration - holdDuration) / shrinkDuration;
-            this.scale = smoothstep(maxScale, 0.0f, progress);
+            this.scale = smoothStep(maxScale, 0.0f, progress);
         } else {
             this.discard();
         }
@@ -101,9 +101,9 @@ public class BlackHoleEntity extends Entity {
         }
     }
 
-    private float smoothstep(float from, float to, float t) {
+    private float smoothStep(float from, float to, float t) {
         t = Math.max(0, Math.min(1, t)); // clamp
-        t = t * t * (3 - 2 * t); // smoothstep easing
+        t = t * t * (3 - 2 * t); // smoothStep easing
         return from + (to - from) * t;
     }
 
