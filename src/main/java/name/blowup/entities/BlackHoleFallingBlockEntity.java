@@ -87,9 +87,7 @@ public class BlackHoleFallingBlockEntity extends FallingBlockEntity {
 
     @Override
     public void tick() {
-        super.tick();
-
-        // Only do black-hole swirl logic if we're on the server and we have a valid center/disk.
+        // Run custom black-hole swirl logic on the server.
         if (!this.getWorld().isClient && blackHoleCenter != null && diskNormal != null) {
             Vec3d currentPos = this.getPos();
             // Calculate a new velocity vector using our swirling math.
@@ -98,9 +96,7 @@ public class BlackHoleFallingBlockEntity extends FallingBlockEntity {
             );
 
             this.setVelocity(newVelocity);
-            if (this.isOnGround()) {
-                this.timeFalling = 0;
-            }
+
             // Check if we've hit the event horizon (1 block radius)
             if (currentPos.squaredDistanceTo(blackHoleCenter) < 3.0) {
                 if (DEBUG_UUIDS.contains(this.getUuid())) {
@@ -115,6 +111,18 @@ public class BlackHoleFallingBlockEntity extends FallingBlockEntity {
                         + currentPos + " with velocity: " + newVelocity);
             }
         }
+
+        // Manually update the entity's position based on its current velocity.
+        this.setPos(this.getX() + this.getVelocity().x,
+                    this.getY() + this.getVelocity().y,
+                    this.getZ() + this.getVelocity().z);
+
+        // Update previous position fields.
+        this.prevX = this.getX();
+        this.prevY = this.getY();
+        this.prevZ = this.getZ();
+
+        // We deliberately do NOT call super.tick() so we bypass vanilla collision and landing logic.
     }
 
     @Override

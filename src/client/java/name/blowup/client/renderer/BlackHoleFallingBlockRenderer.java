@@ -2,6 +2,7 @@ package name.blowup.client.renderer;
 
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
+import net.minecraft.client.render.Frustum;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.RenderLayers;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -10,6 +11,9 @@ import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.FallingBlockEntityRenderer;
 import net.minecraft.client.render.entity.state.FallingBlockEntityRenderState;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.entity.FallingBlockEntity;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import org.joml.Quaternionf;
 
@@ -23,6 +27,30 @@ public class BlackHoleFallingBlockRenderer extends FallingBlockEntityRenderer {
         this.blockRenderManager = context.getBlockRenderManager();
         System.out.println("BlackHoleFallingBlockRenderer instantiated");
     }
+
+    @Override
+    public boolean shouldRender(FallingBlockEntity entity, Frustum frustum, double x, double y, double z) {
+        BlockState entityState = entity.getBlockState();
+        BlockState worldState = entity.getWorld().getBlockState(entity.getFallingBlockPos());
+        boolean result = entityState != worldState || !entity.getVelocity().equals(Vec3d.ZERO);
+        System.out.println("Client render check — Entity: " + entityState + ", World: " + worldState + "Should render: " + result);
+        // Only cull if it's exactly the same *and* the entity isn't moving
+        return result;
+    }
+
+    @Override
+    public void updateRenderState(FallingBlockEntity entity, FallingBlockEntityRenderState state, float partialTicks) {
+        // Instead of using boundingBox.maxY, use the entity's Y coordinate
+        Vec3d pos = new Vec3d(entity.getX(), entity.getY(), entity.getZ());
+        BlockPos floored = BlockPos.ofFloored(pos);
+        state.fallingBlockPos = entity.getFallingBlockPos();
+        state.currentPos = floored;
+        state.blockState = entity.getBlockState();
+        state.biome = entity.getWorld().getBiome(floored);
+        state.world = entity.getWorld();
+    }
+
+
 
     @Override
     public void render(FallingBlockEntityRenderState state, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
