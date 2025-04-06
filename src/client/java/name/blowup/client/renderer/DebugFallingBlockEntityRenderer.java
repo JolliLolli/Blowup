@@ -10,6 +10,7 @@ public class DebugFallingBlockEntityRenderer extends FallingBlockEntityRenderer 
 
     public DebugFallingBlockEntityRenderer(EntityRendererFactory.Context context) {
         super(context);
+        System.out.println("DebugFallingBlockEntityRenderer instantiated");
     }
 
     @Override

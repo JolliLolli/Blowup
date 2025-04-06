@@ -9,11 +9,9 @@ import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtHelper;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
-import net.minecraft.registry.RegistryKeys;
 import net.minecraft.server.network.EntityTrackerEntry;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
@@ -77,24 +75,6 @@ public class BlackHoleFallingBlockEntity extends FallingBlockEntity {
         this.prevX = this.getX();
         this.prevY = this.getY();
         this.prevZ = this.getZ();
-        this.setFallingBlockPos(pos);
-        this.intersectionChecked = true;
-    }
-
-    public void init(BlockPos pos, BlockState state, Vec3d blackHoleCenter, Vec3d diskNormal, double inwardSpeed, double swirlSpeed) {
-        this.blackHoleCenter = blackHoleCenter;
-        this.diskNormal = diskNormal;
-        this.inwardSpeed = inwardSpeed;
-        this.swirlSpeed = swirlSpeed;
-        this.storedState = state;
-        // Update the data tracker.
-        this.dataTracker.set(BLOCK_STATE, Block.getRawIdFromState(state));
-
-        this.setPosition(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
-        this.setVelocity(Vec3d.ZERO);
-        this.prevX = getX();
-        this.prevY = getY();
-        this.prevZ = getZ();
         this.setFallingBlockPos(pos);
         this.intersectionChecked = true;
     }
