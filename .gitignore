@@ -1,20 +1,25 @@
-# Gradle cache
-.gradle/
-build/
-out/
+# Fabric project
+fabric-1.21.4/.gradle/
+fabric-1.21.4/build/
+fabric-1.21.4/run/
+fabric-1.21.4/.idea/
 
-# IntelliJ project files
+# Forge project
+forge-1.7.10/.gradle/
+forge-1.7.10/build/
+forge-1.7.10/run/
+forge-1.7.10/.idea/
+
+# IntelliJ project root
 .idea/
 *.iml
 
-# OS stuff
+# OS junk
 .DS_Store
 Thumbs.db
 
 # Logs
 *.log
 
-# Generated Minecraft stuff
-/run/
-/run/*
-!/run/.gitkeep
+# Misc
+packaging command
