@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import static name.blowup.utils.Kaboom.getRandomDirection;
+
 /**
  * BlackHoleUtils contains utility methods and helper functions for implementing the
  * black hole's block absorption and swirling animations.
@@ -44,10 +46,10 @@ public class BlackHoleUtils {
             double squaredDistance = origin.getSquaredDistance(pos);
             BlockState state = world.getBlockState(pos);
             if (state.isAir() || state.getHardness(world, pos) < 0) return;
-
+            double toBeSquared = squaredDistance - guaranteedRadiusSq;
             double suckChance = squaredDistance <= guaranteedRadiusSq
                     ? 1.0
-                    : 1.0 / (1.0 + Math.pow(squaredDistance - guaranteedRadiusSq, 2));
+                    : 1.0 / (1.0 + 0.2 * toBeSquared * toBeSquared);
 
             if (world.random.nextDouble() < suckChance) {
                 positions.add(pos.toImmutable());
@@ -132,7 +134,7 @@ public class BlackHoleUtils {
      */
     public static Vec3d randomUnitVector(Random random) {
         double theta = random.nextDouble() * 2 * Math.PI;
-        double z = random.nextDouble() * 2 - 1;
+        double z = getRandomDirection() * 2;
         double r = Math.sqrt(1 - z * z);
         double x = r * Math.cos(theta);
         double y = r * Math.sin(theta);

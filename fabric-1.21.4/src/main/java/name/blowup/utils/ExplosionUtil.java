@@ -28,7 +28,7 @@ public class ExplosionUtil {
      * @param tntEntity The TNT tntEntity (vanilla or custom) to prime.
      */
     public static void primeChainReactionTntEntity(ServerWorld world, BlockPos pos, TntEntity tntEntity) {
-        // Center the TNT at the block's center.
+        // Center the TNT at the block's tntCenter.
         tntEntity.refreshPositionAndAngles(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, 0, 0);
         // Shorten the fuse like vanilla TNT does in chain reactions.
         int baseFuse = tntEntity.getFuse();  // usually 60
@@ -48,16 +48,16 @@ public class ExplosionUtil {
         Kaboom.destroyAndFlingBlocks(world, center, flingRadius, destructionRadius, maxY, decay, flingChance);
     }
 
-    public static void doNukeExplosion(ServerWorld world, Vec3d center) {
-        flingExplosion(world, center, 15, 10, 3.0, 0.3, 0.5);
-        playStandardExplosionEffects(world, center);
+    public static void doNukeExplosion(ServerWorld world, Vec3d tntCenter) {
+        flingExplosion(world, tntCenter, 15, 10, 3.0, 0.3, 0.5);
+        playStandardExplosionEffects(world, tntCenter);
     }
 
-    public static void doBlackHoleExplosion(ServerWorld world, Vec3d center) {
-        playStandardExplosionEffects(world, center);
+    public static void doBlackHoleExplosion(ServerWorld world, Vec3d tntCenter) {
+        playStandardExplosionEffects(world, tntCenter);
         world.getServer().execute(() -> {
             BlackHoleEntity blackHole = new BlackHoleEntity(ModEntities.BLACK_HOLE_ENTITY, world);
-            blackHole.refreshPositionAndAngles(center.x, center.y, center.z, 0, 0);
+            blackHole.refreshPositionAndAngles(tntCenter.x, tntCenter.y, tntCenter.z, 0, 0);
             world.spawnEntity(blackHole);
         });
     }

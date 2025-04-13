@@ -106,6 +106,33 @@ public class Kaboom {
         }
     }
 
+    /**
+     * Iterates over block positions in a horizontal circle centered at {@code center} (in the X/Z plane)
+     * with the specified {@code radius}, then applies the given action to each position.
+     *
+     * @param center The center of the circle, as a Vec3d.
+     * @param radius The radius of the circle (in blocks).
+     * @param action A Consumer to perform an action on each BlockPos.
+     */
+    public static void iterateThroughCircle(Vec3d center, int radius, Consumer<BlockPos> action) {
+        // Adjust the center so that flooring works correctly: add 0.5 so that floor returns the expected block coordinate.
+        BlockPos origin = new BlockPos((int) center.x, (int) center.y, (int) center.z);
+        List<BlockPos> positions = new ArrayList<>();
+
+        // Iterate over a square that bounds the circle
+        for (int dx = -radius; dx <= radius; dx++) {
+            for (int dz = -radius; dz <= radius; dz++) {
+                // Only add positions within the circle (using the Pythagorean theorem)
+                if (dx * dx + dz * dz <= radius * radius) {
+                    positions.add(origin.add(dx, 0, dz).toImmutable());
+                }
+            }
+        }
+
+        // Sort the positions so that those closest to the center are processed first.
+        positions.sort(Comparator.comparingDouble(origin::getSquaredDistance));
+        positions.forEach(action);
+    }
 
     /**
      * Calculates the velocity vector for a block based on its position relative to a center point.
@@ -133,9 +160,13 @@ public class Kaboom {
 
     public static void giveTntHop(TntEntity entity) {
         entity.setVelocity(
-                random.nextDouble() * 0.02 - 0.01,
+                getRandomDirection() * 0.02,
                 0.2,
-                random.nextDouble() * 0.02 - 0.01
+                getRandomDirection() * 0.02
         );
+    }
+
+    public static double getRandomDirection() {
+        return random.nextDouble() - 0.5;
     }
 }

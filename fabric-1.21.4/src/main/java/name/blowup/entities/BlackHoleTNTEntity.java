@@ -19,11 +19,11 @@ public class BlackHoleTNTEntity extends CustomTNTEntity {
      * It will create a custom explosion effect.
      *
      * @param world The world where the explosion occurs.
-     * @param center The center position of the explosion.
+     * @param tntCenter The tntCenter position of the explosion.
      */
     @Override
-    protected void explode(ServerWorld world, Vec3d center) {
-        ExplosionUtil.doBlackHoleExplosion(world, center);
+    protected void explode(ServerWorld world, Vec3d tntCenter) {
+        ExplosionUtil.doBlackHoleExplosion(world, tntCenter);
     }
 
     /**
