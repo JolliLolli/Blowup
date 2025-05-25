@@ -1,4 +1,4 @@
-package name.blowup.client.renderer;
+package name.blowup.client.model;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -28,7 +28,7 @@ public class ModelBlackHole extends EntityModel<EntityRenderState> {
 	private final ModelPart hexadecagon3;
 	private final ModelPart hexadecagon7;
 
-	protected ModelBlackHole(ModelPart root) {
+	public ModelBlackHole(ModelPart root) {
 		super(root);
 
 		this.bone = root.getChild("bone");

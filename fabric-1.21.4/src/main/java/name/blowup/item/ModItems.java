@@ -12,6 +12,8 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 import java.util.function.Function;
@@ -23,6 +25,19 @@ import java.util.function.Function;
  */
 public class ModItems {
     // Tool Material
+    public static final Logger LOGGER = LoggerFactory.getLogger(Blowup.MOD_ID);
+
+    // 1) Generic register method
+    private static <T extends Item> T register(String name, Function<Item.Settings, T> factory, Item.Settings settings) {
+        RegistryKey<Item> key = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Blowup.MOD_ID, name));
+        // decorate the settings with registryKey(...)
+        Item.Settings keyedSettings = settings.registryKey(key);
+        T item = factory.apply(keyedSettings);
+        Registry.register(Registries.ITEM, key, item);
+        LOGGER.info("Registered item: {}", name);
+        return item;
+    }
+
     public static final ToolMaterial BIG_MATERIAL = new ToolMaterial(
             BlockTags.INCORRECT_FOR_WOODEN_TOOL,
             455,
@@ -34,49 +49,54 @@ public class ModItems {
 
     // Weapons
     public static final Item BIG_SWORD = register(
-            "big_sword",
-            settings -> new BigSwordItem(BIG_MATERIAL, 5f, 1f, settings),
-            new Item.Settings());
+        "big_sword",
+        s -> new BigSwordItem(BIG_MATERIAL, 5f, 1f, s.maxCount(1)),
+        new Item.Settings()
+    );
 
     // Other items
-    public static final Item END_DUST = register("end_dust", Item::new, new Item.Settings().maxCount(64));
+    public static final Item END_DUST = register(
+        "end_dust",
+        Item::new,
+        new Item.Settings().maxCount(64)
+    );
 
-    // Custom item group called Blowup so you can find the items in the creative inventory
-    public static final RegistryKey<ItemGroup> CUSTOM_ITEM_GROUP_KEY = RegistryKey.of(Registries.ITEM_GROUP.getKey(), Identifier.of(Blowup.MOD_ID, "Blowup"));
-    public static final ItemGroup CUSTOM_ITEM_GROUP = FabricItemGroup.builder()
-            .icon(() -> new ItemStack(ModBlocks.NUKE))
-            .displayName(Text.translatable("itemGroup.Blowup"))
-            .build();
+    // 3) Correct BlockItem registration, using the SAME settings
+    public static final BlockItem DETONATOR = register(
+        "detonator",
+        s -> new BlockItem(ModBlocks.DETONATOR, s.maxCount(64)),
+        new Item.Settings()
+    );
 
-    public static Item register(String name, Function<Item.Settings, Item> itemFactory, Item.Settings settings) {
-        // Create the item key.
-        RegistryKey<Item> itemKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Blowup.MOD_ID, name));
+    public static final Item DETONATOR_PARTICLE = register(
+            "detonator_particle",
+            Item::new,
+            new Item.Settings()
+    );
 
-        // Create the item instance.
-        Item item = itemFactory.apply(settings.registryKey(itemKey));
+    // Custom creative tab
+    public static final RegistryKey<ItemGroup> CUSTOM_TAB_KEY =
+        RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Blowup.MOD_ID, "blowup"));
+    public static final ItemGroup CUSTOM_TAB = FabricItemGroup.builder()
+        .icon(() -> new ItemStack(ModBlocks.NUKE))
+        .displayName(Text.translatable("itemGroup.Blowup"))
+        .build();
 
-        // Register the item.
-        Registry.register(Registries.ITEM, itemKey, item);
-
-        return item;
-    }
-
-    // Register the items here
     public static void initialise() {
+        // Add to vanilla “Ingredients” tab
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS)
-                .register(entries -> {
-                    entries.add(ModItems.END_DUST);
-                    entries.add(ModItems.BIG_SWORD);
-                });
-        // Register the group.
-        Registry.register(Registries.ITEM_GROUP, CUSTOM_ITEM_GROUP_KEY, CUSTOM_ITEM_GROUP);
+            .register(entries -> {
+                entries.add(END_DUST);
+                entries.add(BIG_SWORD);
+            });
 
-        // Register items to the custom item group.
-        ItemGroupEvents.modifyEntriesEvent(CUSTOM_ITEM_GROUP_KEY)
-                .register(itemGroup -> {
-                    itemGroup.add(ModItems.BIG_SWORD);
-                    itemGroup.add(ModItems.END_DUST);
-                });
-
+        // Register and add to custom tab
+        Registry.register(Registries.ITEM_GROUP, CUSTOM_TAB_KEY, CUSTOM_TAB);
+        ItemGroupEvents.modifyEntriesEvent(CUSTOM_TAB_KEY)
+            .register(entries -> {
+                entries.add(END_DUST);
+                entries.add(BIG_SWORD);
+                entries.add(DETONATOR);
+            });
     }
 }

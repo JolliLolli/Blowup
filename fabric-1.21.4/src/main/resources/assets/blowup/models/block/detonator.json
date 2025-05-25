@@ -1,0 +1,5 @@
+{
+  "loader": "geckolib:block",
+  "model": "geo/detonator.geo.json",
+  "renderType": "cutout"
+}

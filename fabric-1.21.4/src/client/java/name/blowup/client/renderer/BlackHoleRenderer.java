@@ -1,5 +1,6 @@
 package name.blowup.client.renderer;
 
+import name.blowup.client.model.ModelBlackHole;
 import name.blowup.entities.BlackHoleEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

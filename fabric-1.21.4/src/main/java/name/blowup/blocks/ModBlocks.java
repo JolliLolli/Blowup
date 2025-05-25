@@ -47,6 +47,17 @@ public class ModBlocks {
             true
     );
 
+    public static final Block DETONATOR = register(
+            "detonator",
+            DetonatorBlock::new,
+            AbstractBlock.Settings.create()
+                    .sounds(BlockSoundGroup.STONE)
+                    .luminance(state -> 1)
+                    .nonOpaque()
+                    .ticksRandomly(),
+            false
+    );
+
     // Register the blocks here
     private static Block register(String name, Function<AbstractBlock.Settings, Block> blockFactory, AbstractBlock.Settings settings, boolean shouldRegisterItem) {
         // Create a registry key for the block
@@ -70,10 +81,11 @@ public class ModBlocks {
 
     // This method is called to register all blocks.
     public static void initialize() {
-        ItemGroupEvents.modifyEntriesEvent(ModItems.CUSTOM_ITEM_GROUP_KEY).register((itemGroup) -> {
+        ItemGroupEvents.modifyEntriesEvent(ModItems.CUSTOM_TAB_KEY).register((itemGroup) -> {
             itemGroup.add(ModBlocks.NUKE.asItem());
             itemGroup.add(ModBlocks.COMPRESSED_COBBLESTONE.asItem());
             itemGroup.add(ModBlocks.BLACK_HOLE_TNT.asItem());
+            itemGroup.add(ModItems.DETONATOR);
         });
     }
 
