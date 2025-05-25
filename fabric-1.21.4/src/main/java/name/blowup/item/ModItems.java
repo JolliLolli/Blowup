@@ -1,22 +1,17 @@
 package name.blowup.item;
 
-import name.blowup.Blowup;
 import name.blowup.blocks.ModBlocks;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 
 import java.util.function.Function;
+
+import static name.blowup.Blowup.LOGGER;
+import static name.blowup.utils.Registering.*;
 
 /**
  * This class is used to register custom items for the mod.
@@ -24,18 +19,38 @@ import java.util.function.Function;
  * The items are registered with a unique identifier and can be accessed using their static fields.
  */
 public class ModItems {
-    // Tool Material
-    public static final Logger LOGGER = LoggerFactory.getLogger(Blowup.MOD_ID);
 
-    // 1) Generic register method
+    public static void initialise() {
+        // Add to vanilla “Ingredients” tab
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS)
+                .register(entries -> {
+                    entries.add(END_DUST);
+                    entries.add(BIG_SWORD);
+                });
+
+        // Register and add to custom tab
+        Registry.register(Registries.ITEM_GROUP, BLOWUP_TAB_KEY, BLOWUP_TAB);
+        ItemGroupEvents.modifyEntriesEvent(BLOWUP_TAB_KEY)
+                .register(entries -> {
+                    entries.add(END_DUST);
+                    entries.add(BIG_SWORD);
+                    entries.add(DETONATOR);
+                });
+    }
+
+    /**
+     * Registers an item into the Minecraft registry using a consistent structure.
+     *
+     * @param name     The name/id of the item.
+     * @param factory  A factory method reference (typically a constructor) for the item.
+     * @param settings The settings for the item, including max stack size, group, etc.
+     * @return The registered Item.
+     */
     private static <T extends Item> T register(String name, Function<Item.Settings, T> factory, Item.Settings settings) {
-        RegistryKey<Item> key = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(Blowup.MOD_ID, name));
-        // decorate the settings with registryKey(...)
-        Item.Settings keyedSettings = settings.registryKey(key);
-        T item = factory.apply(keyedSettings);
-        Registry.register(Registries.ITEM, key, item);
+        RegistryKey<Item> key = keyOfItem(name);
+        T item = factory.apply(settings.registryKey(key));
         LOGGER.info("Registered item: {}", name);
-        return item;
+        return Registry.register(Registries.ITEM, key, item);
     }
 
     public static final ToolMaterial BIG_MATERIAL = new ToolMaterial(
@@ -73,30 +88,4 @@ public class ModItems {
             Item::new,
             new Item.Settings()
     );
-
-    // Custom creative tab
-    public static final RegistryKey<ItemGroup> CUSTOM_TAB_KEY =
-        RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of(Blowup.MOD_ID, "blowup"));
-    public static final ItemGroup CUSTOM_TAB = FabricItemGroup.builder()
-        .icon(() -> new ItemStack(ModBlocks.NUKE))
-        .displayName(Text.translatable("itemGroup.Blowup"))
-        .build();
-
-    public static void initialise() {
-        // Add to vanilla “Ingredients” tab
-        ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS)
-            .register(entries -> {
-                entries.add(END_DUST);
-                entries.add(BIG_SWORD);
-            });
-
-        // Register and add to custom tab
-        Registry.register(Registries.ITEM_GROUP, CUSTOM_TAB_KEY, CUSTOM_TAB);
-        ItemGroupEvents.modifyEntriesEvent(CUSTOM_TAB_KEY)
-            .register(entries -> {
-                entries.add(END_DUST);
-                entries.add(BIG_SWORD);
-                entries.add(DETONATOR);
-            });
-    }
 }

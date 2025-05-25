@@ -23,9 +23,9 @@ public class Blowup implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 		ModItems.initialise();
-		ModBlocks.initialize();
-		ModEntities.register();
-		ModBlockEntities.register();
+		ModBlocks.initialise();
+		ModEntities.initialise();
+		ModBlockEntities.initialise();
 		LOGGER.info("Hello Fabric world!");
 	}
 }

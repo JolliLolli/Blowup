@@ -6,6 +6,8 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
+import static name.blowup.Blowup.LOGGER;
+
 /**
  * This class is used to register custom components for the mod.
  * There aren't any yet, but this is a good place to put them.
@@ -20,7 +22,7 @@ public class ModComponents {
     );
 
     protected static void initialize() {
-        Blowup.LOGGER.info("Registering {} components", Blowup.MOD_ID);
+        LOGGER.info("Registering {} components", Blowup.MOD_ID);
         // Technically this method can stay empty, but some developers like to notify
         // the console, that certain parts of the mod have been successfully initialized
 
