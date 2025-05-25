@@ -11,42 +11,38 @@ import software.bernie.geckolib.animatable.instance.AnimatableInstanceCache;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 import static software.bernie.geckolib.animation.Animation.LoopType.PLAY_ONCE;
-import static software.bernie.geckolib.animation.PlayState.*;
 
 public class DetonatorBlockEntity extends BlockEntity implements GeoBlockEntity {
     private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
-    private static final RawAnimation ANIM_PLUNGE =
-            RawAnimation.begin().then("plunge", PLAY_ONCE);   // name must match your animation.json
+
+    private static final RawAnimation PLUNGE_ANIM = RawAnimation.begin().then("plunge", PLAY_ONCE);
 
     public DetonatorBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.DETONATOR_ENTITY, pos, state);
     }
 
-    private static PlayState handle(AnimationState<DetonatorBlockEntity> state) {     // predicate
-        state.setAnimation(RawAnimation.begin()
-                .then("plunge", PLAY_ONCE));
-        return CONTINUE;
-    }
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() { return cache; }
+
 
     /* ---------- animation plumbing ---------- */
+    private static PlayState predicate(AnimationState<DetonatorBlockEntity> state) {
+        return state.isMoving() ? PlayState.CONTINUE : PlayState.STOP;
+    }
 
     public void startPlunge() {
-        if (world != null && !world.isClient) {
-            this.triggerAnim("controller", "plunge");
-        }
+        this.triggerAnim("plunge_controller", "plunge");
     }
 
     @Override
     public void registerControllers(ControllerRegistrar controllers) {
-        controllers.add(
-                new AnimationController<>(this,          // animatable
-                        "controller",  // controller name (matches Blockbench)
-                        0,             // update period
-                        DetonatorBlockEntity::handle)
-                        .triggerableAnim("plunge", ANIM_PLUNGE)            // lets triggerAnim() find it
+        AnimationController<DetonatorBlockEntity> plungeController = new AnimationController<>(
+                this,
+                "plunge_controller",
+                0,
+                DetonatorBlockEntity::predicate
         );
+        plungeController.triggerableAnim("plunge", PLUNGE_ANIM);
+        controllers.add(plungeController);
     }
-
-    @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() { return cache; }
 }

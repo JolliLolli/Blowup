@@ -25,6 +25,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.block.WireOrientation;
 import org.jetbrains.annotations.Nullable;
 
 import static name.blowup.utils.Kaboom.triggerChainReaction;
@@ -32,6 +33,8 @@ import static name.blowup.utils.Kaboom.triggerChainReaction;
 public class DetonatorBlock extends BlockWithEntity {
     public static final EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
     public static final BooleanProperty PRESSED = BooleanProperty.of("pressed");
+    public static final BooleanProperty POWERED = Properties.POWERED;
+    public final int activationRadius = 15;
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -41,13 +44,17 @@ public class DetonatorBlock extends BlockWithEntity {
 
     @Override
     public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        // collisions don’t need directionality (same for N/S and E/W)
         return NS_SHAPE;
     }
 
     public DetonatorBlock(Settings settings) {
         super(settings);
-        setDefaultState(getDefaultState().with(FACING, Direction.NORTH).with(PRESSED, false));
+        this.setDefaultState(this.stateManager
+                .getDefaultState()
+                .with(FACING, Direction.NORTH)
+                .with(PRESSED, false)
+                .with(POWERED, false)
+        );
     }
 
     @Override
@@ -57,7 +64,7 @@ public class DetonatorBlock extends BlockWithEntity {
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING, PRESSED);
+        builder.add(FACING, PRESSED, POWERED);
     }
 
     @Override
@@ -75,25 +82,50 @@ public class DetonatorBlock extends BlockWithEntity {
                               PlayerEntity player, BlockHitResult hit) {
 
         if (world.isClient) return ActionResult.SUCCESS;
-
-        // forbid re-pressing
         if (state.get(PRESSED)) return ActionResult.CONSUME;
+        if (world.getBlockEntity(pos) instanceof DetonatorBlockEntity det) det.startPlunge();
 
-        // 1) animate the handle
-        BlockEntity be = world.getBlockEntity(pos);
-        if (be instanceof DetonatorBlockEntity det) det.startPlunge();
-
-        // 2) update blockstate for visual feedback / redstone
         world.setBlockState(pos, state.with(PRESSED, true), Block.NOTIFY_ALL);
         world.scheduleBlockTick(pos, this, 20);
-        world.updateNeighbors(pos, this);   // emit redstone if you like
+        world.updateNeighbors(pos, this);
 
-        // 3) …your custom explosion trigger logic here…
         if (!world.isClient()) {
-            triggerChainReaction((ServerWorld) world, pos.toCenterPos(), 15);
+            triggerChainReaction((ServerWorld) world, pos.toCenterPos(), activationRadius);
         }
 
         return ActionResult.CONSUME;
+    }
+
+    @Override
+    public void neighborUpdate(BlockState state,
+                               World world,
+                               BlockPos pos,
+                               Block sourceBlock,
+                               @Nullable WireOrientation wireOrientation,
+                               boolean notify) {
+        super.neighborUpdate(state, world, pos, sourceBlock, wireOrientation, notify);
+
+        if (world.isClient) return;
+        boolean powered = world.isReceivingRedstonePower(pos);
+        boolean pressed = state.get(PRESSED);
+
+        if (powered && !pressed) {
+            activateByRedstone(state, world, pos);
+        }
+    }
+
+    private void activateByRedstone(BlockState state, World world, BlockPos pos) {
+        BlockEntity be = world.getBlockEntity(pos);
+        if (be instanceof DetonatorBlockEntity det) {
+            det.startPlunge();
+        }
+
+        world.setBlockState(pos, state.with(PRESSED, true), Block.NOTIFY_ALL);
+        world.scheduleBlockTick(pos, this, 20);
+
+        if (!world.isClient) {
+            triggerChainReaction((ServerWorld) world, pos.toCenterPos(), activationRadius);
+        }
     }
 
     @Override
@@ -108,8 +140,6 @@ public class DetonatorBlock extends BlockWithEntity {
     @Override
     protected void spawnBreakParticles(World world, PlayerEntity player, BlockPos pos, BlockState state) {
         if (!world.isClient) return;
-
-        // Use the new particle‐only item so we know for sure it has a sprite
         ItemStackParticleEffect effect = new ItemStackParticleEffect(
                 ParticleTypes.ITEM,
                 new ItemStack(ModItems.DETONATOR_PARTICLE)
@@ -125,7 +155,6 @@ public class DetonatorBlock extends BlockWithEntity {
             double vy = world.random.nextDouble() * 0.2 + 0.02;
             double vz = (world.random.nextDouble() - 0.5) * 0.2;
 
-            // spawn using the forced item‐sprite
             world.addParticle(effect, false, false, dx, dy, dz, vx, vy, vz);
         }
     }
@@ -143,7 +172,6 @@ public class DetonatorBlock extends BlockWithEntity {
     private static final VoxelShape NS_LAYER4 = Block.createCuboidShape( 4.0,  7.0,  6.0, 12.0,  9.0, 10.0);
     private static final VoxelShape NS_LAYER5 = Block.createCuboidShape( 6.75, 8.0,  7.0,  9.25, 16.0,  9.0);
     private static final VoxelShape NS_LAYER6 = Block.createCuboidShape( 3.0, 14.75, 6.75, 13.0, 17.0,  9.0);
-
     private static final VoxelShape NS_SHAPE = VoxelShapes.union(
             NS_LAYER1, NS_LAYER2, NS_LAYER3, NS_LAYER4, NS_LAYER5, NS_LAYER6
     );
@@ -155,7 +183,6 @@ public class DetonatorBlock extends BlockWithEntity {
     private static final VoxelShape EW_LAYER4 = Block.createCuboidShape( 6.0,  7.0,  4.0, 10.0,  9.0, 12.0);
     private static final VoxelShape EW_LAYER5 = Block.createCuboidShape( 7.0,  8.0,  6.75,  9.0, 16.0,  9.25);
     private static final VoxelShape EW_LAYER6 = Block.createCuboidShape( 7.0, 14.75,  3.0,  9.25,17.0, 13.0);
-
     private static final VoxelShape EW_SHAPE = VoxelShapes.union(
             EW_LAYER1, EW_LAYER2, EW_LAYER3, EW_LAYER4, EW_LAYER5, EW_LAYER6
     );
