@@ -1,7 +1,6 @@
-package name.blowup.utils;
+package name.blowup.registering;
 
 import name.blowup.Blowup;
-import name.blowup.blocks.ModBlocks;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntityType;

@@ -1,5 +1,6 @@
-package name.blowup.guis;
+package name.blowup.registering;
 
+import name.blowup.guis.DetonatorScreenHandler;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.screen.ScreenHandlerType;

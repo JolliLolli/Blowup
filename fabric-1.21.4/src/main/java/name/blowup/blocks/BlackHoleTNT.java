@@ -1,8 +1,8 @@
 package name.blowup.blocks;
 
 import name.blowup.entities.CustomTNTEntity;
-import name.blowup.entities.ModEntities;
-import name.blowup.entities.BlackHoleTNTEntity;
+import name.blowup.registering.ModEntities;
+import name.blowup.entities.BlackHole.BlackHoleTNTEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 

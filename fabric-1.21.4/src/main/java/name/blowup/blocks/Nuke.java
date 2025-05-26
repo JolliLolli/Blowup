@@ -1,6 +1,6 @@
 package name.blowup.blocks;
 
-import name.blowup.entities.ModEntities;
+import name.blowup.registering.ModEntities;
 import name.blowup.entities.NukeEntity;
 import name.blowup.entities.CustomTNTEntity;
 import net.minecraft.util.math.BlockPos;

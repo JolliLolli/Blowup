@@ -1,6 +1,9 @@
 // ModBlocks.java
-package name.blowup.blocks;
+package name.blowup.registering;
 
+import name.blowup.blocks.BlackHoleTNT;
+import name.blowup.blocks.DetonatorBlock;
+import name.blowup.blocks.Nuke;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -10,12 +13,11 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.sound.BlockSoundGroup;
-import name.blowup.item.ModItems;
 
 import java.util.function.Function;
 
 import static name.blowup.Blowup.LOGGER;
-import static name.blowup.utils.Registering.*;
+import static name.blowup.registering.Registering.*;
 
 /**
  * This class is used to register custom blocks for the mod.

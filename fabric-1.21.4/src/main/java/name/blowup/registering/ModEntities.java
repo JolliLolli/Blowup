@@ -1,5 +1,9 @@
-package name.blowup.entities;
+package name.blowup.registering;
 
+import name.blowup.entities.BlackHole.BlackHoleEntity;
+import name.blowup.entities.BlackHole.BlackHoleFallingBlockEntity;
+import name.blowup.entities.BlackHole.BlackHoleTNTEntity;
+import name.blowup.entities.NukeEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
@@ -8,7 +12,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 
 import static name.blowup.Blowup.LOGGER;
-import static name.blowup.utils.Registering.*;
+import static name.blowup.registering.Registering.*;
 
 /**
  * This class is used to register custom entities for the mod.

@@ -1,6 +1,6 @@
 package name.blowup.utils;
 
-import name.blowup.entities.BlackHoleFallingBlockEntity;
+import name.blowup.entities.BlackHole.BlackHoleFallingBlockEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.server.world.ServerWorld;

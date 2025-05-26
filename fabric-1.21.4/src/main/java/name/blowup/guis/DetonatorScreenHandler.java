@@ -1,7 +1,8 @@
 package name.blowup.guis;
 
-import name.blowup.blocks.ModBlocks;
+import name.blowup.registering.ModBlocks;
 import name.blowup.entities.DetonatorBlockEntity;
+import name.blowup.registering.ModScreenHandlers;
 import net.minecraft.block.Block;
 import net.minecraft.block.TntBlock;
 import net.minecraft.block.entity.BlockEntity;

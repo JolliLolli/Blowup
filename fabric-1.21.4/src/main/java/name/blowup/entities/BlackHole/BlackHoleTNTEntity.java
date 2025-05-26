@@ -1,7 +1,8 @@
-package name.blowup.entities;
+package name.blowup.entities.BlackHole;
 
+import name.blowup.entities.CustomTNTEntity;
 import name.blowup.utils.ExplosionUtil;
-import name.blowup.blocks.ModBlocks;
+import name.blowup.registering.ModBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.server.world.ServerWorld;

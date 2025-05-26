@@ -1,4 +1,4 @@
-package name.blowup.component;
+package name.blowup.registering;
 
 import name.blowup.Blowup;
 import net.minecraft.component.ComponentType;

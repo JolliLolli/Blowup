@@ -1,10 +1,10 @@
 package name.blowup;
 
-import name.blowup.blocks.ModBlocks;
-import name.blowup.entities.ModBlockEntities;
-import name.blowup.entities.ModEntities;
-import name.blowup.guis.ModScreenHandlers;
-import name.blowup.item.ModItems;
+import name.blowup.registering.ModBlocks;
+import name.blowup.registering.ModBlockEntities;
+import name.blowup.registering.ModEntities;
+import name.blowup.registering.ModScreenHandlers;
+import name.blowup.registering.ModItems;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;

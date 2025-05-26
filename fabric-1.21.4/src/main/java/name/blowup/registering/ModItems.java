@@ -1,6 +1,6 @@
-package name.blowup.item;
+package name.blowup.registering;
 
-import name.blowup.blocks.ModBlocks;
+import name.blowup.item.BigSwordItem;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
@@ -11,7 +11,7 @@ import net.minecraft.registry.tag.BlockTags;
 import java.util.function.Function;
 
 import static name.blowup.Blowup.LOGGER;
-import static name.blowup.utils.Registering.*;
+import static name.blowup.registering.Registering.*;
 
 /**
  * This class is used to register custom items for the mod.

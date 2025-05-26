@@ -1,7 +1,7 @@
 package name.blowup.utils;
 
-import name.blowup.entities.BlackHoleEntity;
-import name.blowup.entities.ModEntities;
+import name.blowup.entities.BlackHole.BlackHoleEntity;
+import name.blowup.registering.ModEntities;
 import net.minecraft.entity.TntEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;

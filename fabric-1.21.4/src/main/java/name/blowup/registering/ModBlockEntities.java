@@ -1,6 +1,6 @@
-package name.blowup.entities;
+package name.blowup.registering;
 
-import name.blowup.blocks.ModBlocks;
+import name.blowup.entities.DetonatorBlockEntity;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder.Factory;
 import net.minecraft.block.Block;
@@ -11,7 +11,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 
 import static name.blowup.Blowup.LOGGER;
-import static name.blowup.utils.Registering.*;
+import static name.blowup.registering.Registering.*;
 
 /**
  * Registers all custom block entities for the Blowup mod.

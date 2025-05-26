@@ -1,4 +1,4 @@
-package name.blowup.client.renderer;
+package name.blowup.client.renderer.BlackHole;
 
 import net.minecraft.client.render.entity.state.FallingBlockEntityRenderState;
 import java.util.UUID;

@@ -1,6 +1,6 @@
-package name.blowup.client.renderer;
+package name.blowup.client.renderer.BlackHole;
 
-import name.blowup.entities.BlackHoleEntity;
+import name.blowup.entities.BlackHole.BlackHoleEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.entity.state.EntityRenderState;

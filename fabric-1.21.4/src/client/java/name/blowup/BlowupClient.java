@@ -2,16 +2,16 @@ package name.blowup;
 
 import name.blowup.client.guis.DetonatorScreen;
 import name.blowup.client.renderer.DetonatorRenderer;
-import name.blowup.entities.ModBlockEntities;
-import name.blowup.entities.ModEntities;
-import name.blowup.guis.ModScreenHandlers;
+import name.blowup.registering.ModBlockEntities;
+import name.blowup.registering.ModEntities;
+import name.blowup.registering.ModScreenHandlers;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.client.render.entity.TntEntityRenderer;
-import name.blowup.client.renderer.BlackHoleFallingBlockRenderer;
-import name.blowup.client.renderer.BlackHoleRenderer;
+import name.blowup.client.renderer.BlackHole.BlackHoleFallingBlockRenderer;
+import name.blowup.client.renderer.BlackHole.BlackHoleRenderer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

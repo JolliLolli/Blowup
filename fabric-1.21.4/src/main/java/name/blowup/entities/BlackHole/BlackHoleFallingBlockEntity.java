@@ -1,5 +1,7 @@
-package name.blowup.entities;
+package name.blowup.entities.BlackHole;
 
+import name.blowup.entities.CustomFallingBlockEntity;
+import name.blowup.registering.ModEntities;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;

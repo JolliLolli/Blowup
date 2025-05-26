@@ -1,4 +1,4 @@
-package name.blowup.entities;
+package name.blowup.entities.BlackHole;
 
 import name.blowup.utils.BlackHoleUtils;
 import net.minecraft.entity.Entity;
