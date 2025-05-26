@@ -2,16 +2,16 @@ package name.blowup.blocks;
 
 import com.mojang.serialization.MapCodec;
 import name.blowup.entities.DetonatorBlockEntity;
-import name.blowup.item.ModItems;
+import name.blowup.guis.DetonatorScreenHandler;
+import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.particle.ItemStackParticleEffect;
-import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.EnumProperty;
@@ -25,16 +25,19 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldAccess;
 import net.minecraft.world.block.WireOrientation;
 import org.jetbrains.annotations.Nullable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import static name.blowup.Blowup.MOD_ID;
 import static name.blowup.utils.Kaboom.triggerChainReaction;
 
 public class DetonatorBlock extends BlockWithEntity {
     public static final EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
     public static final BooleanProperty PRESSED = BooleanProperty.of("pressed");
     public static final BooleanProperty POWERED = Properties.POWERED;
-    public final int activationRadius = 15;
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -80,20 +83,16 @@ public class DetonatorBlock extends BlockWithEntity {
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos,
                               PlayerEntity player, BlockHitResult hit) {
-
         if (world.isClient) return ActionResult.SUCCESS;
-        if (state.get(PRESSED)) return ActionResult.CONSUME;
-        if (world.getBlockEntity(pos) instanceof DetonatorBlockEntity det) det.startPlunge();
 
-        world.setBlockState(pos, state.with(PRESSED, true), Block.NOTIFY_ALL);
-        world.scheduleBlockTick(pos, this, 20);
-        world.updateNeighbors(pos, this);
-
-        if (!world.isClient()) {
-            triggerChainReaction((ServerWorld) world, pos.toCenterPos(), activationRadius);
+        // Grab your block entity and, if it supports screens, open it:
+        BlockEntity be = world.getBlockEntity(pos);
+        if (be instanceof ExtendedScreenHandlerFactory<?> factory) {
+            player.openHandledScreen(factory);
+            return ActionResult.CONSUME;
         }
 
-        return ActionResult.CONSUME;
+        return ActionResult.PASS;
     }
 
     @Override
@@ -104,33 +103,94 @@ public class DetonatorBlock extends BlockWithEntity {
                                @Nullable WireOrientation wireOrientation,
                                boolean notify) {
         super.neighborUpdate(state, world, pos, sourceBlock, wireOrientation, notify);
-
         if (world.isClient) return;
+
         boolean powered = world.isReceivingRedstonePower(pos);
         boolean pressed = state.get(PRESSED);
-
-        if (powered && !pressed) {
-            activateByRedstone(state, world, pos);
-        }
+        if (powered && !pressed) activateByRedstone(state, world, pos);
     }
 
     private void activateByRedstone(BlockState state, World world, BlockPos pos) {
-        BlockEntity be = world.getBlockEntity(pos);
-        if (be instanceof DetonatorBlockEntity det) {
-            det.startPlunge();
+        if (world.isClient()) return;
+
+        BlockEntity beRaw = world.getBlockEntity(pos);
+        if (!(beRaw instanceof DetonatorBlockEntity be)) return;
+
+        be.startPlunge();
+        int radius = be.getActivationRadius();
+        int timer = be.getTimerTicks() * 20; // this is in seconds
+        if (radius <= 0) return;
+
+        boolean foundTnt = false;
+        for (BlockPos scanPos : BlockPos.iterate(
+                pos.add(-radius, -radius, -radius),
+                pos.add( radius,  radius,  radius)
+        )) {
+            Block block = world.getBlockState(scanPos).getBlock();
+            if (block instanceof TntBlock) {
+                foundTnt = true;
+                break;
+            }
         }
 
-        world.setBlockState(pos, state.with(PRESSED, true), Block.NOTIFY_ALL);
-        world.scheduleBlockTick(pos, this, 20);
+        if (foundTnt) {
+            if (world instanceof ServerWorld sw) {
+                sw.scheduleBlockTick(pos, this, timer);
+                be.setPendingExplosion(true);
+            }
 
-        if (!world.isClient) {
-            triggerChainReaction((ServerWorld) world, pos.toCenterPos(), activationRadius);
+            // prevent retriggering until re-armed
+            world.setBlockState(pos, state.with(PRESSED, true), Block.NOTIFY_ALL);
+        }
+    }
+
+
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+
+    @Override
+    public void onBlockAdded(BlockState state, World world, BlockPos pos,
+                             BlockState oldState, boolean moved) {
+        super.onBlockAdded(state, world, pos, oldState, moved);
+        if (!world.isClient()) {
+            world.scheduleBlockTick(pos, this, 10);
         }
     }
 
     @Override
-    public void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        // reset the button so it can be pressed again
+    public void scheduledTick(BlockState state,
+                              ServerWorld world,
+                              BlockPos pos,
+                              Random random) {
+        BlockEntity raw = world.getBlockEntity(pos);
+        if (!(raw instanceof DetonatorBlockEntity be)) return;
+
+        // 1) Fuel‐tick: burn one dust every 10 ticks, reschedule if still has fuel
+        if (be.burnFuel()) {
+            LOGGER.info("[Block] Burned 1 fuel → radius now {}", be.getActivationRadius());
+            // re‐schedule next fuel‐burn
+            world.scheduleBlockTick(pos, this, 10);
+
+            // ── SYNC HANDLER TO CLIENT ───────────────────────
+            // for each player with our GUI open, push the new slot + delegate!
+            for (ServerPlayerEntity sp : world.getServer().getPlayerManager().getPlayerList()) {
+                if (sp.currentScreenHandler instanceof DetonatorScreenHandler handler
+                        && handler.getContext().get((w, bp) -> bp.equals(pos)).orElse(false)) {
+                    handler.sendContentUpdates();
+                }
+            }
+        }
+
+        // 2) Explosion‐tick: only if primed by GUI or redstone
+        if (be.isPendingExplosion()) {
+            be.setPendingExplosion(false);
+            int r = be.getActivationRadius();
+            LOGGER.info("[Block] Exploding radius {}", r);
+            triggerChainReaction(world, pos.toCenterPos(), r);
+            be.setActivationRadius(0);
+            be.markDirty();
+        }
+
+        // 3) Re‐arm the “pressed” property so it can be activated again
         if (state.get(PRESSED)) {
             world.setBlockState(pos, state.with(PRESSED, false), Block.NOTIFY_ALL);
             world.updateNeighbors(pos, this);
@@ -138,24 +198,18 @@ public class DetonatorBlock extends BlockWithEntity {
     }
 
     @Override
-    protected void spawnBreakParticles(World world, PlayerEntity player, BlockPos pos, BlockState state) {
-        if (!world.isClient) return;
-        ItemStackParticleEffect effect = new ItemStackParticleEffect(
-                ParticleTypes.ITEM,
-                new ItemStack(ModItems.DETONATOR_PARTICLE)
-        );
+    public void onBroken(WorldAccess world, BlockPos pos, BlockState state) {
+        super.onBroken(world, pos, state);
 
-        Vec3d center = pos.toCenterPos();
-        for (int i = 0; i < 35; i++) {
-            double dx = center.x + (world.random.nextDouble() - 0.5) * 0.6;
-            double dy = center.y + (world.random.nextDouble() - 0.5) * 0.6;
-            double dz = center.z + (world.random.nextDouble() - 0.5) * 0.6;
-
-            double vx = (world.random.nextDouble() - 0.5) * 0.2;
-            double vy = world.random.nextDouble() * 0.2 + 0.02;
-            double vz = (world.random.nextDouble() - 0.5) * 0.2;
-
-            world.addParticle(effect, false, false, dx, dy, dz, vx, vy, vz);
+        if (world instanceof World w && !w.isClient) {
+            w.playSound(
+                    null,               // no specific player
+                    pos,
+                    SoundEvents.BLOCK_STONE_BREAK,
+                    SoundCategory.BLOCKS,
+                    1.0f,               // volume
+                    1.0f                // pitch
+            );
         }
     }
 

@@ -3,6 +3,7 @@ package name.blowup;
 import name.blowup.blocks.ModBlocks;
 import name.blowup.entities.ModBlockEntities;
 import name.blowup.entities.ModEntities;
+import name.blowup.guis.ModScreenHandlers;
 import name.blowup.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
@@ -26,6 +27,7 @@ public class Blowup implements ModInitializer {
 		ModBlocks.initialise();
 		ModEntities.initialise();
 		ModBlockEntities.initialise();
+		ModScreenHandlers.initialise();
 		LOGGER.info("Hello Fabric world!");
 	}
 }
