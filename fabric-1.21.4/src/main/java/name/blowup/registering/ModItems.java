@@ -76,16 +76,9 @@ public class ModItems {
         new Item.Settings().maxCount(64)
     );
 
-    // 3) Correct BlockItem registration, using the SAME settings
     public static final BlockItem DETONATOR = register(
         "detonator",
         s -> new BlockItem(ModBlocks.DETONATOR, s.maxCount(64)),
         new Item.Settings()
-    );
-
-    public static final Item DETONATOR_PARTICLE = register(
-            "detonator_particle",
-            Item::new,
-            new Item.Settings()
     );
 }
