@@ -1,0 +1,8 @@
+{
+  "loader": "geckolib:block",
+  "model": "geo/detonator.geo.json",
+  "renderType": "cutout",
+  "textures": {
+    "particle": "blowup:item/detonator_particle"
+  }
+}
